@@ -1,5 +1,21 @@
 ---
-
+import { MAX_WIDTH } from "@/consts"
+import { Image } from "astro:assets"
 ---
 
-<footer>footer</footer>
+<footer class="mt-10 flex justify-center">
+	<div
+		class="w-full border-t border-primary px-7 py-3"
+		style={`max-width: ${MAX_WIDTH}px`}
+	>
+		<Image
+			src="/logo.webp"
+			alt="logo diegosiac"
+			width={50}
+			height={50}
+			class="transition duration-300 ease-in-out dark:invert"
+		/>
+
+		<nav></nav>
+	</div>
+</footer>
