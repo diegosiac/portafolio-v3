@@ -1,0 +1,56 @@
+---
+import type { Experience } from "@/interfaces"
+
+interface Props {
+	experience: Experience
+}
+
+const { experience } = Astro.props
+
+const { company, description, period, position, isLast } = experience
+---
+
+<article class="flex gap-5">
+	<div class="relative flex justify-center pt-2">
+		<span
+			class="relative z-10 flex h-4 w-4 animate-fade-in-up items-center justify-center"
+			style="animation-duration: 0.3s"
+		>
+			{
+				isLast && (
+					<span class="absolute inline-flex h-full w-full animate-spin rounded-full bg-orange opacity-75 animate-iteration-count-infinite" />
+				)
+			}
+			<span class="relative inline-flex h-full w-full rounded-full bg-orange"
+			></span>
+		</span>
+
+		<div class="dotted-spaced absolute left-1/2 h-full w-1 -translate-x-1/2">
+		</div>
+	</div>
+	<div class="flex flex-col gap-10 md:flex-row">
+		<div class="text-balance">
+			<h3 class="text-xl font-bold text-orange">{position}</h3>
+			<p class="max-w-[40ch] text-xl font-semibold">
+				{company}
+			</p>
+			<p class="text-primary-inactive">{period}</p>
+		</div>
+		<p class="max-w-[40ch]">
+			{description}
+		</p>
+	</div>
+</article>
+
+<style>
+	.dotted-spaced {
+		background-image: linear-gradient(
+			to bottom,
+			#8b8b8b 40%,
+			rgba(255, 255, 255, 0) 60%
+		);
+		background-position: left;
+		background-size: 2px 9px;
+		background-repeat: repeat-y;
+	}
+</style>
