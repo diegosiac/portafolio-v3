@@ -1,0 +1,27 @@
+---
+interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+	checkActive?: boolean
+}
+
+const {
+	href,
+	class: className,
+	checkActive = true,
+	...restOfProps
+} = Astro.props
+
+const currentPath = Astro.url.pathname
+const isActive = currentPath === href && checkActive
+---
+
+<a
+	href={href}
+	class:list={[
+		className,
+		"capitalize hover:text-primary",
+		isActive ? "font-black text-primary" : "primary-inactive",
+	]}
+	{...restOfProps}
+>
+	<slot />
+</a>
