@@ -1,9 +1,26 @@
 ---
+import CardExperience from "@/components/CardExperience.astro"
+import type { Experience } from "@/interfaces"
 import Hat from "../icons/hat.astro"
+
+const experience: Experience[] = [
+	{
+		company: "Omica",
+		position: "Frontend Developer",
+		period: "2021 - Present",
+		description:
+			"I'm working on the development of the company's website and the development of the company's products.",
+		isLast: true,
+	},
+]
 ---
 
-<section>
-	<div><Hat /> Experiencia Laboral</div>
+<section class="mt-20">
+	<h2 class="flex items-center gap-5 text-2xl font-bold">
+		<Hat class="size-8 stroke-2" /> Experiencia Laboral
+	</h2>
 
-	<div></div>
+	<div class="mt-10 flex flex-col gap-5">
+		{experience.map((exp) => <CardExperience experience={exp} />)}
+	</div>
 </section>
