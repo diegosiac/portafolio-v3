@@ -1,5 +1,27 @@
 ---
+import CardSkill from "@/components/CardSkill.astro"
+import GroupSkill from "@/components/GroupSkill.astro"
 import Tool from "@/icons/tool.astro"
+
+// icons
+
+import Angular from "@/icons/angular.astro"
+import Aws from "@/icons/aws.astro"
+import Cypress from "@/icons/cypress.astro"
+import Django from "@/icons/django.astro"
+import Docker from "@/icons/docker.astro"
+import ExpressJs from "@/icons/expressjs.astro"
+import Git from "@/icons/git.astro"
+import JavaScript from "@/icons/javascript.astro"
+import Jest from "@/icons/jest.astro"
+import NestJS from "@/icons/nestjs.astro"
+import NextJS from "@/icons/nextjs.astro"
+import NodeJs from "@/icons/nodejs.astro"
+import Playwright from "@/icons/playwright.astro"
+import PostgreSQL from "@/icons/postgresql.astro"
+import Python from "@/icons/python.astro"
+import React from "@/icons/react.astro"
+import Redis from "@/icons/redis.astro"
 ---
 
 <section class="mt-20">
@@ -7,5 +29,91 @@ import Tool from "@/icons/tool.astro"
 		<Tool class="size-8 stroke-2" /> Mi Stack de Desarrollo
 	</h2>
 
-	<div class="mt-5"></div>
+	<div class="mt-10 flex w-full items-center justify-center">
+		<div class="relative grid w-max grid-cols-4 gap-3 md:grid-cols-5">
+			<h3
+				class="absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 text-[130px] font-black tracking-[-0.1ch] text-[#d6d6d6] opacity-10 md:block md:text-[190px] xl:text-[250px]"
+			>
+				SKILLS
+			</h3>
+			<GroupSkill>
+				<CardSkill skill="JavaScript">
+					<JavaScript class="size-8" />
+					<JavaScript class="size-8" slot="icon-bg" />
+				</CardSkill>
+				<CardSkill skill="React">
+					<React class="size-8" />
+					<React class="size-10" slot="icon-bg" />
+				</CardSkill>
+				<CardSkill skill="Playwright">
+					<Playwright class="size-10" />
+					<Playwright class="size-14" slot="icon-bg" />
+				</CardSkill>
+			</GroupSkill>
+			<GroupSkill>
+				<CardSkill skill="PostgreSQL">
+					<PostgreSQL class="size-8" />
+					<PostgreSQL class="size-10" slot="icon-bg" />
+				</CardSkill>
+				<CardSkill skill="Docker">
+					<Docker class="size-8" />
+					<Docker class="size-10" slot="icon-bg" />
+				</CardSkill>
+				<CardSkill skill="Django">
+					<Django class="size-8" />
+					<Django class="size-10" slot="icon-bg" />
+				</CardSkill>
+				<CardSkill skill="NodeJs">
+					<NodeJs class="size-10" />
+					<NodeJs class="size-14" slot="icon-bg" />
+				</CardSkill>
+			</GroupSkill>
+			<GroupSkill>
+				<CardSkill skill="Python">
+					<Python class="size-14" />
+					<Python class="size-16" slot="icon-bg" />
+				</CardSkill>
+				<CardSkill skill="NextJS">
+					<NextJS class="size-8" />
+					<NextJS class="size-10" slot="icon-bg" />
+				</CardSkill>
+				<CardSkill skill="Angular">
+					<Angular class="size-8" />
+					<Angular class="size-10" slot="icon-bg" />
+				</CardSkill>
+			</GroupSkill>
+			<GroupSkill>
+				<CardSkill skill="Cypress">
+					<Cypress class="size-14" />
+					<Cypress class="size-16" slot="icon-bg" />
+				</CardSkill>
+				<CardSkill skill="Jest">
+					<Jest class="size-8" />
+					<Jest class="size-8" slot="icon-bg" />
+				</CardSkill>
+				<CardSkill skill="NestJS">
+					<NestJS class="size-8" />
+					<NestJS class="size-8" slot="icon-bg" />
+				</CardSkill>
+				<CardSkill skill="AWS">
+					<Aws class="size-8" />
+					<Aws class="size-14" slot="icon-bg" />
+				</CardSkill>
+			</GroupSkill>
+			<GroupSkill class="hidden md:flex">
+				<CardSkill skill="Redis">
+					<Redis class="size-8" />
+					<Redis class="size-8" slot="icon-bg" />
+				</CardSkill>
+				<CardSkill skill="ExpressJs">
+					<ExpressJs class="size-8" />
+					<ExpressJs class="size-10" slot="icon-bg" />
+				</CardSkill>
+				<CardSkill skill="Git">
+					<Git class="size-8" />
+					<Git class="size-7" slot="icon-bg" />
+				</CardSkill>
+			</GroupSkill>
+		</div>
+	</div>
 </section>
