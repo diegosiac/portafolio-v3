@@ -9,6 +9,8 @@ interface Props {
 	description: string
 }
 
+const MAX_WIDTH = 900
+
 const { title, description } = Astro.props
 ---
 
@@ -47,13 +49,16 @@ const { title, description } = Astro.props
 
 		<ViewTransitions />
 	</head>
-	<body class="relative bg-primary text-primary">
+	<body class="relative bg-primary pt-20 text-primary">
 		<div
 			class="background-page absolute left-0 top-0 z-[-40] h-full min-h-screen w-full bg-gray-50"
 		>
 		</div>
 		<NavBar />
-		<main class="flex flex-col px-4 pt-20">
+		<main
+			class="mx-auto flex w-full max-w-10 flex-col px-4"
+			style={`max-width: ${MAX_WIDTH}px;`}
+		>
 			<slot />
 		</main>
 		<style is:global>
