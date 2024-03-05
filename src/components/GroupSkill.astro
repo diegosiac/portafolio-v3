@@ -1,0 +1,12 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {}
+
+const { class: className, ...props } = Astro.props
+---
+
+<div
+	{...props}
+	class={`flex flex-col items-center justify-center gap-3 ${className}`}
+>
+	<slot />
+</div>
