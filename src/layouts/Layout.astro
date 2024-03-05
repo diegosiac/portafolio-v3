@@ -1,0 +1,184 @@
+---
+import "@fontsource-variable/onest"
+
+import { ViewTransitions } from "astro:transitions"
+import NavBar from "@/components/NavBar.astro"
+
+interface Props {
+	title: string
+	description: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<script is:inline>
+			function setDarkMode(document) {
+				const theme = localStorage.getItem("theme")
+
+				document.documentElement.classList.toggle("dark", theme == "dark")
+			}
+			setDarkMode(document)
+
+			document.addEventListener("astro:before-swap", (ev) => {
+				setDarkMode(ev.newDocument)
+			})
+
+			document.addEventListener("astro:page-load", () => {
+				window.getThemePreference = () => {
+					const localItem =
+						typeof localStorage !== "undefined" && localStorage.getItem("theme")
+
+					if (localItem) return localItem
+
+					return window.matchMedia("(prefers-color-scheme: dark)").matches
+						? "dark"
+						: "light"
+				}
+			})
+		</script>
+
+		<ViewTransitions />
+	</head>
+	<body class="relative bg-primary text-primary">
+		<div
+			class="background-page absolute left-0 top-0 z-[-40] h-full min-h-screen w-full bg-gray-50"
+		>
+		</div>
+		<NavBar />
+		<main class="flex px-4 pt-20">
+			<slot />
+		</main>
+		<style is:global>
+			:root {
+				--color-primary: #242422;
+				--color-secondary: #fdfbf6;
+
+				--color-orange: #f59300;
+
+				--color-green: #5ad539;
+
+				--color-primary-blur: #24242238;
+				--color-secondary-blur: #fdfbf630;
+
+				--color-primary-inactive: #4d4d4c;
+
+				--background-track-scroll: #242422;
+				--background-corner-scroll: #242422;
+
+				--background-color: #fdfbf6;
+
+				--box-shadow-glows: #b4b4b480;
+
+				--background-image: radial-gradient(
+						circle at 10% 20%,
+						#ffa41755,
+						transparent 70%
+					),
+					radial-gradient(circle at 90% 80%, #b5813355, transparent 70%),
+					radial-gradient(circle at 50% 50%, #ffa41755, transparent 80%),
+					radial-gradient(circle at 20% 80%, #b5813355, transparent 80%),
+					radial-gradient(circle at 80% 10%, #242422, transparent 60%);
+			}
+
+			.dark {
+				--color-primary: #fdfbf6;
+				--color-secondary: #242422;
+
+				--color-orange: #ffa417;
+
+				--color-primary-blur: #fdfbf630;
+				--color-secondary-blur: #2424226e;
+
+				--color-primary-inactive: #dddddd;
+
+				--background-corner-scroll: #242422;
+				--background-track-scroll: #242422;
+
+				--background-image: radial-gradient(
+						circle at 10% 20%,
+						#ffa41755,
+						transparent 70%
+					),
+					radial-gradient(circle at 90% 80%, #b5813355, transparent 70%),
+					radial-gradient(circle at 50% 50%, #ffa41755, transparent 80%),
+					radial-gradient(circle at 20% 80%, #b5813355, transparent 80%),
+					radial-gradient(circle at 80% 10%, #242422, transparent 60%);
+
+				--background-color: #242422;
+			}
+
+			.background-page {
+				background-color: var(--background-color);
+				background-image: var(--background-image);
+				background-size: cover;
+				background-blend-mode: multiply, darken, multiply, darken, overlay;
+			}
+
+			html {
+				font-family: "Onest Variable", system-ui, sans-serif;
+				overflow-x: hidden;
+				overscroll-behavior: none;
+			}
+
+			main {
+				position: relative;
+			}
+
+			@media screen and (prefers-reduced-motion: no-preference) {
+				html {
+					scroll-behavior: smooth;
+				}
+			}
+
+			/* Hiding class, making content visible only to screen readers but not visually */
+			/* "sr" meaning "screen-reader" */
+			.sr-only:not(:focus):not(:active) {
+				clip: rect(0 0 0 0);
+				clip-path: inset(50%);
+				height: 1px;
+				overflow: hidden;
+				position: absolute;
+				white-space: nowrap;
+				width: 1px;
+			}
+
+			::-webkit-scrollbar {
+				width: 10px;
+				border-radius: 10px;
+			}
+
+			::-webkit-scrollbar-thumb {
+				border-radius: 10px;
+				background-color: theme("colors.primary");
+				border: 2px solid transparent;
+				background-clip: content-box;
+			}
+
+			::-webkit-scrollbar-track {
+				background: theme("colors.secondary");
+			}
+
+			::-webkit-scrollbar-corner {
+				background: theme("colors.primary");
+			}
+
+			.btn {
+				@apply gap-2 rounded-md bg-secondary px-3 py-2;
+			}
+
+			.card-glowing {
+				background: linear-gradient(270deg, #7a7a7a33, #f000 60.71%),
+					linear-gradient(0deg, #7a7a7a33, #0f00 60.71%),
+					linear-gradient(90deg, #7a7a7a33, #00f0 60.71%);
+			}
+		</style>
+	</body>
+</html>
