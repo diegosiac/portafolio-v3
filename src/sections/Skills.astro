@@ -1,5 +1,5 @@
 ---
-import CardSkill from "@/components/CardSkill.astro"
+import { CardSkill } from "@/components/CardSkill"
 import GroupSkill from "@/components/GroupSkill.astro"
 import Tool from "@/icons/tool.astro"
 
@@ -29,71 +29,71 @@ import Redis from "@/icons/redis.astro"
 		<Tool class="size-8 stroke-2" /> Mi Stack de Desarrollo
 	</h2>
 
-	<div class="mt-10 flex w-full items-center justify-center">
-		<div class="relative grid w-max grid-cols-4 gap-3 sm:grid-cols-5">
+	<div class="mt-16 flex w-full items-center justify-center">
+		<div class="relative grid w-max grid-cols-4 gap-2 sm:grid-cols-5">
 			<h3
 				class="absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 text-[130px] font-black tracking-[-0.1ch] text-primary opacity-15 sm:text-[200px] md:block md:text-[250px] lg:text-[270px]"
 			>
 				SKILLS
 			</h3>
 			<GroupSkill>
-				<CardSkill skill="JavaScript">
+				<CardSkill skill="JavaScript" client:visible>
 					<JavaScript class="size-8" />
 				</CardSkill>
-				<CardSkill skill="React">
+				<CardSkill skill="React" client:visible>
 					<React class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Playwright">
+				<CardSkill skill="Playwright" client:visible>
 					<Playwright class="size-10" />
 				</CardSkill>
 			</GroupSkill>
 			<GroupSkill>
-				<CardSkill skill="PostgreSQL">
+				<CardSkill skill="PostgreSQL" client:visible>
 					<PostgreSQL class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Docker">
+				<CardSkill skill="Docker" client:visible>
 					<Docker class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Django">
+				<CardSkill skill="Django" client:visible>
 					<Django class="size-8" />
 				</CardSkill>
-				<CardSkill skill="NodeJs">
+				<CardSkill skill="NodeJs" client:visible>
 					<NodeJs class="size-10" />
 				</CardSkill>
 			</GroupSkill>
 			<GroupSkill>
-				<CardSkill skill="Python">
+				<CardSkill skill="Python" client:visible>
 					<Python class="size-10" />
 				</CardSkill>
-				<CardSkill skill="NextJS">
+				<CardSkill skill="NextJS" client:visible>
 					<NextJS class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Angular">
+				<CardSkill skill="Angular" client:visible>
 					<Angular class="size-8" />
 				</CardSkill>
 			</GroupSkill>
 			<GroupSkill>
-				<CardSkill skill="Cypress">
+				<CardSkill skill="Cypress" client:visible>
 					<Cypress class="size-10" />
 				</CardSkill>
-				<CardSkill skill="Jest">
+				<CardSkill skill="Jest" client:visible>
 					<Jest class="size-8" />
 				</CardSkill>
-				<CardSkill skill="NestJS">
+				<CardSkill skill="NestJS" client:visible>
 					<NestJS class="size-8" />
 				</CardSkill>
-				<CardSkill skill="AWS">
+				<CardSkill skill="AWS" client:visible>
 					<Aws class="size-8" />
 				</CardSkill>
 			</GroupSkill>
 			<GroupSkill class="hidden sm:flex">
-				<CardSkill skill="Redis">
+				<CardSkill skill="Redis" client:visible>
 					<Redis class="size-8" />
 				</CardSkill>
-				<CardSkill skill="ExpressJs">
+				<CardSkill skill="ExpressJs" client:visible>
 					<ExpressJs class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Git">
+				<CardSkill skill="Git" client:visible>
 					<Git class="size-8" />
 				</CardSkill>
 			</GroupSkill>
