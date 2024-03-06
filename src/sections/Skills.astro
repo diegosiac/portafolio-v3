@@ -29,71 +29,72 @@ import Redis from "@/icons/redis.astro"
 		<Tool class="size-8 stroke-2" /> Mi Stack de Desarrollo
 	</h2>
 
-	<div class="mt-16 flex w-full items-center justify-center">
-		<div class="relative grid w-max grid-cols-4 gap-2 sm:grid-cols-5">
-			<h3
-				class="absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 text-[130px] font-black tracking-[-0.1ch] text-primary opacity-15 sm:text-[200px] md:block md:text-[250px] lg:text-[270px]"
-			>
-				SKILLS
-			</h3>
+	<div class="relative mt-16 flex w-full items-center justify-center">
+		<h3
+			class="absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 text-[120px] font-black tracking-[-0.1ch] text-primary opacity-15 sm:text-[200px] md:block md:text-[260px] lg:text-[280px]"
+		>
+			SKILLS
+		</h3>
+
+		<div class="grid w-max grid-cols-4 gap-2 sm:grid-cols-5">
 			<GroupSkill>
-				<CardSkill skill="JavaScript" client:visible>
+				<CardSkill skill="JavaScript" client:only="preact">
 					<JavaScript class="size-8" />
 				</CardSkill>
-				<CardSkill skill="React" client:visible>
+				<CardSkill skill="React" client:only="preact">
 					<React class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Playwright" client:visible>
+				<CardSkill skill="Playwright" client:only="preact">
 					<Playwright class="size-10" />
 				</CardSkill>
 			</GroupSkill>
 			<GroupSkill>
-				<CardSkill skill="PostgreSQL" client:visible>
+				<CardSkill skill="PostgreSQL" client:only="preact">
 					<PostgreSQL class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Docker" client:visible>
+				<CardSkill skill="Docker" client:only="preact">
 					<Docker class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Django" client:visible>
+				<CardSkill skill="Django" client:only="preact">
 					<Django class="size-8" />
 				</CardSkill>
-				<CardSkill skill="NodeJs" client:visible>
+				<CardSkill skill="NodeJs" client:only="preact">
 					<NodeJs class="size-10" />
 				</CardSkill>
 			</GroupSkill>
 			<GroupSkill>
-				<CardSkill skill="Python" client:visible>
+				<CardSkill skill="Python" client:only="preact">
 					<Python class="size-10" />
 				</CardSkill>
-				<CardSkill skill="NextJS" client:visible>
+				<CardSkill skill="NextJS" client:only="preact">
 					<NextJS class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Angular" client:visible>
+				<CardSkill skill="Angular" client:only="preact">
 					<Angular class="size-8" />
 				</CardSkill>
 			</GroupSkill>
 			<GroupSkill>
-				<CardSkill skill="Cypress" client:visible>
+				<CardSkill skill="Cypress" client:only="preact">
 					<Cypress class="size-10" />
 				</CardSkill>
-				<CardSkill skill="Jest" client:visible>
+				<CardSkill skill="Jest" client:only="preact">
 					<Jest class="size-8" />
 				</CardSkill>
-				<CardSkill skill="NestJS" client:visible>
+				<CardSkill skill="NestJS" client:only="preact">
 					<NestJS class="size-8" />
 				</CardSkill>
-				<CardSkill skill="AWS" client:visible>
+				<CardSkill skill="AWS" client:only="preact">
 					<Aws class="size-8" />
 				</CardSkill>
 			</GroupSkill>
 			<GroupSkill class="hidden sm:flex">
-				<CardSkill skill="Redis" client:visible>
+				<CardSkill skill="Redis" client:only="preact">
 					<Redis class="size-8" />
 				</CardSkill>
-				<CardSkill skill="ExpressJs" client:visible>
+				<CardSkill skill="ExpressJs" client:only="preact">
 					<ExpressJs class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Git" client:visible>
+				<CardSkill skill="Git" client:only="preact">
 					<Git class="size-8" />
 				</CardSkill>
 			</GroupSkill>
