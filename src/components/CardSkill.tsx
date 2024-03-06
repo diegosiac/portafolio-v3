@@ -29,7 +29,7 @@ export const CardSkill = ({ skill, children }: Props) => {
 
 	return (
 		<div
-			class="revealing-image relative overflow-hidden rounded bg-secondary-blur shadow-2xl"
+			class="reveal relative overflow-hidden rounded bg-secondary-blur shadow-2xl"
 			onMouseMove={handleMouseMove}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
