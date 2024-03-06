@@ -13,7 +13,7 @@ interface Props {
 const { class: className, style } = Astro.props
 ---
 
-<svg class:list={className} style={style} viewBox="-25 0 98 48">
+<svg class:list={className} style={style} viewBox="-3 20 50 8">
 	<style type="text/css">
 		.st0 {
 			fill: #69d3a7;
@@ -52,12 +52,12 @@ const { class: className, style } = Astro.props
 		>
 		</path>
 		<path
-			class="st2"
+			class="st2 get-color"
 			d="M16.9,19c1.9,0,3.5,1,4.3,2.8l0.1,0.1l3.3-1.1l-0.1-0.2c-1.3-3.1-4.2-5-7.6-5c-2.4,0-4.4,0.8-6,2.4   c-1.6,1.6-2.4,3.6-2.4,5.9c0,2.3,0.8,4.3,2.4,5.9c1.6,1.6,3.6,2.4,6,2.4c3.4,0,6.3-1.9,7.6-5l0.1-0.2l-3.3-1.1l-0.1,0.1   c-0.7,1.8-2.3,2.8-4.3,2.8c-1.4,0-2.5-0.5-3.4-1.4c-0.9-0.9-1.4-2.1-1.4-3.5c0-1.4,0.5-2.6,1.4-3.6C14.4,19.5,15.5,19,16.9,19z"
 		>
 		</path>
 		<path
-			class="st2"
+			class="st2 get-color"
 			d="M37.3,16.1l-4.6,11.8L28,16.1h-3.8l6.6,16.1L26,43.4l3.3,0.7l11.5-28H37.3z"
 		>
 		</path>
@@ -71,7 +71,7 @@ const { class: className, style } = Astro.props
 			gradientTransform="matrix(1 0 0 -1 -106 -146.3902)"
 		>
 			<stop offset="7.740000e-02" style="stop-color:#58D09E"> </stop>
-			<stop offset="0.7617" style="stop-color:#1B1E2E"> </stop>
+			<stop offset="0.7617" class="get-color"> </stop>
 		</linearGradient>
 		<path
 			class="st3"
@@ -80,3 +80,11 @@ const { class: className, style } = Astro.props
 		</path>
 	</g>
 </svg>
+
+<style>
+	.get-color {
+		stop-color: theme(colors.primary);
+		fill: theme(colors.primary);
+		opacity: 0.6;
+	}
+</style>
