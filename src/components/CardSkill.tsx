@@ -16,7 +16,7 @@ export const CardSkill = ({ skill, children }: Props) => {
 		setOpacity(1)
 	}
 
-	const handleMouseMove = (e: MouseEvent) => {
+	const handleMouseMove = (e: any) => {
 		setPosition({
 			x: e.layerX - 15,
 			y: e.layerY - 15,
