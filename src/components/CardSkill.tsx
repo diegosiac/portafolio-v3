@@ -1,4 +1,3 @@
-import type { JSXInternal } from "node_modules/preact/src/jsx"
 import { useState } from "preact/hooks"
 
 interface Props {
@@ -17,9 +16,7 @@ export const CardSkill = ({ skill, children }: Props) => {
 		setOpacity(1)
 	}
 
-	const handleMouseMove = (
-		e: JSXInternal.TargetedMouseEvent<HTMLDivElement>
-	) => {
+	const handleMouseMove = (e: MouseEvent) => {
 		setPosition({
 			x: e.layerX - 15,
 			y: e.layerY - 15,
