@@ -5,10 +5,16 @@ export default {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
 		extend: {
+			fontFamily: {
+				"oxanium": ["Oxanium Variable", "system-ui", "sans-serif"],
+				"tilt-neon": ["Tilt Neon Variable", "system-ui", "sans-serif"],
+				"ubuntu": ["Ubuntu Sans Variable", "system-ui", "sans-serif"],
+				"tourney": ["Tourney Variable", "system-ui", "sans-serif"],
+			},
 			colors: {
-				primary: "var(--color-primary)",
-				secondary: "var(--color-secondary)",
-				orange: "var(--color-orange)",
+				primary: "hsl(var(--color-primary))",
+				secondary: "hsl(var(--color-secondary))",
+				orange: "hsl(var(--color-orange))",
 				green: "var(--color-green)",
 			},
 			backgroundColor: {
