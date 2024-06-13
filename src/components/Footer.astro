@@ -1,21 +1,69 @@
 ---
 import { MAX_WIDTH } from "@/consts"
+import GitHub from "@/icons/github.astro"
+import LinkedIn from "@/icons/linkedin.astro"
+import Mail from "@/icons/mail.astro"
 import { Image } from "astro:assets"
+
+type Link = {
+	text: string
+	url: string
+}
+
+const links: Link[] = [
+	{ text: "Blog", url: "/blog" },
+	{ text: "Contáctame", url: "/contact" },
+]
 ---
 
-<footer class="mt-10 flex justify-center">
+<footer class="w-full p-5 px-5 lg:px-10">
 	<div
-		class="w-full border-t border-primary px-7 py-3"
+		class="m-auto flex w-full flex-col items-start justify-between gap-x-5 gap-y-5 md:flex-row md:items-center"
 		style={`max-width: ${MAX_WIDTH}px`}
 	>
-		<Image
-			src="/logo.webp"
-			alt="logo diegosiac"
-			width={50}
-			height={50}
-			class="transition duration-300 ease-in-out dark:invert"
-		/>
-
-		<nav></nav>
+		<div class="header-logo flex items-center gap-x-2">
+			<a href="/">
+				<Image
+					class="transition duration-300 ease-in-out dark:invert"
+					src="/logo.webp"
+					width={50}
+					height={50}
+					alt="logo diegosiac"
+				/>
+			</a>
+			<h2 class="text-base font-bold text-neutral-900 dark:text-white">
+				diegosiac
+			</h2>
+		</div>
+		<div class="social-icons flex items-center gap-x-4">
+			<a
+				href="https://github.com/diegosiac"
+				target="_blank"
+				class="text-primary/50 hover:text-primary"
+			>
+				<GitHub class="size-5" />
+			</a>
+			<a
+				href="https://www.linkedin.com/in/diegosiac/"
+				target="_blank"
+				class="text-primary/50 hover:text-primary"
+			>
+				<LinkedIn class="size-5" />
+			</a>
+			<a href="" target="_blank" class="text-primary/50 hover:text-primary">
+				<Mail class="size-5" />
+			</a>
+		</div>
+		<ul
+			class="flex flex-col items-start justify-center gap-x-10 md:flex-row md:items-center"
+		>
+			{
+				links.map((link) => (
+					<li class="text-[15px]/normal font-medium text-primary/60 transition-all duration-100 ease-linear hover:text-primary hover:underline hover:underline-offset-4">
+						<a href={link.url}>{link.text}</a>
+					</li>
+				))
+			}
+		</ul>
 	</div>
 </footer>
