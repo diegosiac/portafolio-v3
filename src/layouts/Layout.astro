@@ -1,5 +1,9 @@
 ---
 import "@fontsource-variable/onest"
+import "@fontsource-variable/oxanium"
+import "@fontsource-variable/tilt-neon"
+import "@fontsource-variable/ubuntu-sans"
+import "@fontsource-variable/tourney"
 
 import { ViewTransitions } from "astro:transitions"
 import NavBar from "@/components/NavBar.astro"
@@ -48,7 +52,7 @@ const { title, description } = Astro.props
 
 		<ViewTransitions />
 	</head>
-	<body class="relative bg-primary pt-20 text-primary">
+	<body class="relative bg-primary text-primary">
 		<div
 			class="background-page absolute left-0 top-0 z-[-40] h-full min-h-screen w-full bg-gray-50"
 		>
@@ -63,10 +67,10 @@ const { title, description } = Astro.props
 		<Footer />
 		<style is:global>
 			:root {
-				--color-primary: #242422;
-				--color-secondary: #fdfbf6;
+				--color-primary: 60 3% 14%;
+				--color-secondary: 43 64% 98%;
 
-				--color-orange: #f59300;
+				--color-orange: 36 100% 48%;
 
 				--color-green: #5ad539;
 
@@ -94,10 +98,10 @@ const { title, description } = Astro.props
 			}
 
 			.dark {
-				--color-primary: #fdfbf6;
-				--color-secondary: #242422;
+				--color-primary: 43 64% 98%;
+				--color-secondary: 60 3% 14%;
 
-				--color-orange: #ffa417;
+				--color-orange: 36 100% 55%;
 
 				--color-primary-blur: #fdfbf630;
 				--color-secondary-blur: #2424226e;
@@ -188,7 +192,7 @@ const { title, description } = Astro.props
 			.reveal {
 				animation: reveal linear both;
 				animation-timeline: view();
-				animation-range: entry 5% cover 20%;
+				animation-range: entry 20% cover 30%;
 			}
 
 			@keyframes reveal {
