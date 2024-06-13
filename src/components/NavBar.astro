@@ -29,12 +29,11 @@ const links: Links[] = [
 
 <header
 	id="landing-header"
-	class="fixed left-1/2 top-5 z-40 flex w-min -translate-x-1/2 items-center rounded-md bg-primary-blur p-1 text-primary backdrop-blur-md"
+	class="fixed left-1/2 top-5 z-40 flex w-min -translate-x-1/2 items-center rounded-md p-1 text-primary"
 >
 	<nav>
 		<ul
-			class="flex text-primary-inactive [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-1 [&>li>a]:font-medium [&>li>a]:transition-colors
-			[&>li>a]:duration-500 [&>li>a]:motion-safe:transition"
+			class="flex text-primary-inactive [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-1 [&>li>a]:font-medium [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:motion-safe:transition"
 		>
 			{
 				links.map(({ label, name, url }) => (
@@ -53,15 +52,25 @@ const links: Links[] = [
 
 	<span
 		id="menu-backdrop"
-		class="absolute left-0 top-0 -z-10
-			h-[var(--height)] w-[var(--width)]
-			translate-x-[var(--left)] translate-y-[var(--top)]
-			rounded bg-secondary
-			opacity-0 backdrop-blur-lg
-			transition-all duration-500 ease-in-out"
+		class="absolute left-0 top-0 -z-10 h-[var(--height)] w-[var(--width)] translate-x-[var(--left)] translate-y-[var(--top)] rounded bg-secondary opacity-0 backdrop-blur-lg transition-all duration-500 ease-in-out"
 	>
 	</span>
 </header>
+
+<style>
+	#landing-header {
+		animation: header linear both;
+		animation-timeline: scroll();
+		animation-range: 0 500px;
+	}
+
+	@keyframes header {
+		to {
+			background-color: var(--color-primary-blur);
+			backdrop-filter: blur(12px);
+		}
+	}
+</style>
 
 <script>
 	document.addEventListener("astro:page-load", () => {
