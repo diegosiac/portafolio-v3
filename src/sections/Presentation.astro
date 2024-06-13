@@ -5,82 +5,89 @@ import Mail from "@/icons/mail.astro"
 import { Image } from "astro:assets"
 ---
 
-<section class="flex w-full items-center justify-center gap-10 pt-24">
-	<div
-		class="card-glowing relative h-min w-full max-w-[60ch] rounded-md bg-primary-blur p-5 pt-10 shadow-inner shadow-glow md:pt-5"
-	>
-		<div
-			class="absolute -top-[66px] left-0 flex items-center justify-center gap-4 md:hidden"
-		>
-			<Image
-				src="https://files.cults3d.com/uploaders/25462948/illustration-file/c26167c5-c48b-4702-99b1-1b4750216d28/untitled.2.jpg"
-				alt="asdf"
-				width={50}
-				height={50}
-				style="animation-duration: 0.2s"
-				class="h-20 w-20 animate-fade-in-up rounded-full bg-primary object-cover shadow-2xl shadow-primary"
-			/>
+<section class="flex h-screen w-full gap-20 pb-10 pt-24">
+	<div class="flex w-min flex-col justify-between">
+		<h1 class="font-ubuntu text-8xl font-black leading-none">
+			Diego Cruz
 			<span
-				class="absolute bottom-1 left-14 flex h-4 w-4 animate-fade-in-up items-center justify-center"
-				style="animation-duration: 0.3s"
+				class="-ml-3 inline-flex size-4 animate-fade-in-up items-center justify-center animate-duration-200"
 			>
 				<span
-					class="absolute inline-flex h-full w-full animate-spin rounded-full bg-green opacity-75 animate-iteration-count-infinite"
+					class="absolute inline-flex h-full w-full animate-spin rounded-full bg-primary opacity-75 animate-iteration-count-infinite"
 				></span>
-				<span
-					class="relative inline-flex h-full w-full rounded-full border border-white bg-green"
+				<span class="relative inline-flex h-full w-full rounded-full bg-primary"
 				></span>
 			</span>
+		</h1>
 
-			<p
-				class="animate-fade-in-up rounded-full bg-primary-blur p-1 px-4 shadow-2xl shadow-primary"
-				style="animation-duration: 0.2s"
-			>
-				@diegosiac
-			</p>
+		<div class="font-oxanium w-min space-y-1 whitespace-nowrap font-medium">
+			<h2 class="text-lg">Desarrollador de Software</h2>
+			<hr class="border-primary" />
+			<p class="text-base">@diegosiac</p>
 		</div>
 
-		<h1
-			class="mb-5 animate-fade-in-up text-3xl font-extrabold"
-			style="animation-duration: 0.35s"
-		>
-			Aquí <span class="text-orange">Diego Cruz</span> comentando
-		</h1>
-		<p
-			class="animate-fade-in-up text-xl leading-tight"
-			style="animation-duration: 0.4s"
-		>
-			Desarrollador web con sólida experiencia en ReactJS y NodeJS.
-		</p>
-		<div
-			class="mt-10 flex animate-fade-in-up flex-wrap gap-2"
-			style="animation-duration: 0.45s"
-		>
-			<a href="#" class="btn flex items-center">
-				<Mail class="size-5" />
-				Contáctame
-			</a>
-			<a href="#" class="btn flex items-center">
-				<LinkedIn class="size-5" />
-				LinkedIn
-			</a>
-			<a href="#" class="btn hidden items-center md:flex">
-				<GitHub class="size-5" />
-				GitHub
-			</a>
+		<div class="font-oxanium flex items-center gap-2">
+			<span class="text-6xl font-bold">+1</span>
+
+			<div class="text-sm font-bold">
+				<p>Año de</p>
+				<span>experiencia</span>
+			</div>
 		</div>
 	</div>
 
-	<div
-		class="hidden animate-fade-in-up md:block"
-		style="animation-duration: 0.35s"
-	>
+	<div class="relative w-full">
 		<Image
-			src="https://cdnb.artstation.com/p/assets/images/images/043/815/005/large/marco-cardona-jr-118.jpg?1638326646"
-			alt=""
-			width={100}
-			height={100}
-			class="w-60"
+			src="https://www.distritomax.com/cdn/shop/products/funko-pop-chukie-los-rugrats_1000x1000.png?v=1646928608"
+			alt="asdf"
+			width={300}
+			height={300}
+			class="absolute bottom-0 left-[35px] h-[600px] w-[700px] animate-fade-in-up object-cover animate-duration-200"
 		/>
+		<p
+			class="font-oxanium absolute left-0 top-44 flex max-w-[30ch] flex-col text-xs leading-tight"
+		>
+			<span class="font-tourney pb-2 text-base"> X/DIEGOSIAC </span>
+
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quasi maxime
+			iste
+		</p>
+
+		<p
+			class="font-oxanium absolute right-0 top-0 flex rotate-90 flex-col border-b border-primary text-xl font-medium leading-tight"
+		>
+			X-SIAC
+			<span>MATERIALES</span>
+			<span>DE CREACIÓN</span>
+		</p>
+		<div
+			class="absolute bottom-0 right-0 flex animate-fade-in-up flex-col gap-5 p-4 animate-duration-200"
+		>
+			<a
+				href="#"
+				target="_blank"
+				class="flex items-center transition-colors hover:text-secondary"
+			>
+				<Mail class="size-6" />
+			</a>
+			<a
+				href="https://www.linkedin.com/in/diegosiac/"
+				target="_blank"
+				class="flex items-center transition-colors hover:text-secondary"
+			>
+				<LinkedIn class="size-6" />
+			</a>
+			<a
+				href="https://github.com/diegosiac"
+				target="_blank"
+				class="flex items-center transition-colors hover:text-secondary"
+			>
+				<GitHub class="size-6" />
+			</a>
+		</div>
+		<div
+			class="bg-orange/70 absolute bottom-0 -z-10 h-1/2 w-full rounded-xl backdrop-blur-md"
+		>
+		</div>
 	</div>
 </section>
