@@ -36,7 +36,7 @@ export const CardSkill = ({ skill, children }: Props) => {
 		>
 			<div
 				id="spotlight"
-				class="pointer-events-none absolute -inset-px transform-gpu opacity-0 transition duration-300"
+				class="pointer-events-none absolute -inset-px transform-gpu opacity-0 transition duration-300 [&>astro-slot>svg]:size-16"
 				style={`
 					opacity: ${opacity};
 					left: ${position.x}px;
@@ -46,7 +46,7 @@ export const CardSkill = ({ skill, children }: Props) => {
 				{children}
 			</div>
 
-			<div class="flex w-[80px] flex-col items-center justify-between gap-4 p-2 text-center backdrop-blur-md">
+			<div class="flex w-[80px] flex-col items-center justify-between gap-4 p-2 text-center backdrop-blur-lg">
 				{children}
 				<p class="text-xs font-semibold">{skill}</p>
 			</div>
