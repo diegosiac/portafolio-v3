@@ -4,6 +4,10 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  react: npm:@preact/compat
+  react-dom: npm:@preact/compat
+
 importers:
 
   .:
@@ -57,6 +61,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: 7.13.0
         version: 7.13.0(eslint@9.4.0)(typescript@5.4.5)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       eslint:
         specifier: 9.4.0
         version: 9.4.0
@@ -69,6 +76,9 @@ importers:
       eslint-plugin-jsx-a11y:
         specifier: 6.8.0
         version: 6.8.0(eslint@9.4.0)
+      framer-motion:
+        specifier: ^11.2.10
+        version: 11.2.10
       lightningcss:
         specifier: 1.25.1
         version: 1.25.1
@@ -87,6 +97,9 @@ importers:
       stylelint-config-html:
         specifier: 1.1.0
         version: 1.1.0(postcss-html@1.7.0)(stylelint@16.6.1(typescript@5.4.5))
+      tailwind-merge:
+        specifier: ^2.3.0
+        version: 2.3.0
 
 packages:
 
@@ -1143,7 +1156,7 @@ packages:
     resolution: {integrity: sha512-xhSlYgAuJ6Q4WQGkzYTLmXwhYl39sWjoMA3nHxfkvG+WdBT25c563a7QhwwKivEOZtPJXifYHR1m2ihoisbWyA==}
     peerDependencies:
       next: '>= 13'
-      react: ^18 || ^19
+      react: npm:@preact/compat
     peerDependenciesMeta:
       next:
         optional: true
@@ -2113,6 +2126,20 @@ packages:
 
   fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
+
+  framer-motion@11.2.10:
+    resolution: {integrity: sha512-/gr3PLZUVFCc86a9MqCUboVrALscrdluzTb3yew+2/qKBU8CX6nzs918/SRBRCqaPbx0TZP10CB6yFgK2C5cYQ==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: npm:@preact/compat
+      react-dom: npm:@preact/compat
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   fs-minipass@2.1.0:
     resolution: {integrity: sha512-V/JgOLFCS+R6Vcq0slCuaeWEdNC3ouDlJMNIsacH2VtALiu9mV4LPrHc5cDl8k5aw6J8jwgWWpiTo5RYhmIzvg==}
@@ -3777,6 +3804,9 @@ packages:
   table@6.8.2:
     resolution: {integrity: sha512-w2sfv80nrAh2VCbqR5AK27wswXhqcck2AhfnNW76beQXskGZ1V12GwS//yYVa3d3fcvAip2OUnbDAjW2k3v9fA==}
     engines: {node: '>=10.0.0'}
+
+  tailwind-merge@2.3.0:
+    resolution: {integrity: sha512-vkYrLpIP+lgR0tQCG6AP7zZXCTLc1Lnv/CCRT3BqJ9CZ3ui2++GPaGb1x/ILsINIMSYqqvrpqjUFsMNLlW99EA==}
 
   tailwindcss@3.4.4:
     resolution: {integrity: sha512-ZoyXOdJjISB7/BcLTR6SEsLgKtDStYyYZVLsUtWChO4Ps20CBad7lfJKVDiejocV4ME1hLmyY0WJE3hSDcmQ2A==}
@@ -6589,6 +6619,10 @@ snapshots:
 
   fraction.js@4.3.7: {}
 
+  framer-motion@11.2.10:
+    dependencies:
+      tslib: 2.6.3
+
   fs-minipass@2.1.0:
     dependencies:
       minipass: 3.3.6
@@ -8499,6 +8533,10 @@ snapshots:
       slice-ansi: 4.0.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
+
+  tailwind-merge@2.3.0:
+    dependencies:
+      '@babel/runtime': 7.24.7
 
   tailwindcss@3.4.4:
     dependencies:
