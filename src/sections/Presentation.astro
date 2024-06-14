@@ -5,7 +5,7 @@ import Mail from "@/icons/mail.astro"
 import { Image } from "astro:assets"
 ---
 
-<section class="flex h-screen w-full gap-20 pb-10 pt-24">
+<section class="flex h-screen gap-20 pb-10 pt-24">
 	<div class="flex w-min flex-col justify-between">
 		<h1 class="font-ubuntu text-8xl font-black leading-none">
 			Diego Cruz
@@ -20,13 +20,13 @@ import { Image } from "astro:assets"
 			</span>
 		</h1>
 
-		<div class="font-oxanium w-min space-y-1 whitespace-nowrap font-medium">
+		<div class="w-min space-y-1 whitespace-nowrap font-oxanium font-medium">
 			<h2 class="text-lg">Desarrollador de Software</h2>
 			<hr class="border-primary" />
 			<p class="text-base">@diegosiac</p>
 		</div>
 
-		<div class="font-oxanium flex items-center gap-2">
+		<div class="flex items-center gap-2 font-oxanium">
 			<span class="text-6xl font-bold">+1</span>
 
 			<div class="text-sm font-bold">
@@ -36,25 +36,25 @@ import { Image } from "astro:assets"
 		</div>
 	</div>
 
-	<div class="relative w-full">
+	<div class="relative hidden w-full sm:block">
 		<Image
 			src="https://www.distritomax.com/cdn/shop/products/funko-pop-chukie-los-rugrats_1000x1000.png?v=1646928608"
-			alt="asdf"
+			alt="Foto de perfil de Diego Cruz"
 			width={300}
 			height={300}
 			class="absolute bottom-0 left-[35px] h-[600px] w-[700px] animate-fade-in-up object-cover animate-duration-200"
 		/>
 		<p
-			class="font-oxanium absolute left-0 top-44 flex max-w-[30ch] flex-col text-xs leading-tight"
+			class="absolute left-0 top-44 flex max-w-[30ch] flex-col font-oxanium text-xs leading-tight"
 		>
-			<span class="font-tourney pb-2 text-base"> X/DIEGOSIAC </span>
+			<span class="pb-2 font-tourney text-base"> X/DIEGOSIAC </span>
 
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quasi maxime
 			iste
 		</p>
 
 		<p
-			class="font-oxanium absolute right-0 top-0 flex rotate-90 flex-col border-b border-primary text-xl font-medium leading-tight"
+			class="absolute right-0 top-0 flex rotate-90 flex-col border-b border-primary font-oxanium text-xl font-medium leading-tight"
 		>
 			X-SIAC
 			<span>MATERIALES</span>
@@ -86,8 +86,37 @@ import { Image } from "astro:assets"
 			</a>
 		</div>
 		<div
-			class="bg-orange/70 absolute bottom-0 -z-10 h-1/2 w-full rounded-xl backdrop-blur-md"
+			class="absolute bottom-0 -z-10 h-1/2 w-full rounded-xl bg-orange/70 backdrop-blur-md"
 		>
 		</div>
 	</div>
+
+	<div
+		class="framer"
+		data-framer-name="Image"
+		style="transform: translateX(-50%);"
+	>
+		<Image
+			class="opacity-90 invert dark:opacity-45 dark:invert-0"
+			src="/images/backgrounds/Vv1CCa0nUgZDiVRn6YGpyBM.png"
+			alt="Image de decoración de fondo"
+			width={1400}
+			height={1247}
+			style="display: block; width: 100%; height: 100%; border-radius: inherit; object-position: center center; object-fit: cover; image-rendering: auto;"
+		/>
+	</div>
 </section>
+
+<style>
+	.framer {
+		aspect-ratio: 1.12269 / 1;
+		flex: 0 0 auto;
+		height: var(--framer-aspect-ratio-supported, 1247px);
+		left: 50%;
+		overflow: visible;
+		position: absolute;
+		top: 0px;
+		width: 1400px;
+		z-index: -40;
+	}
+</style>
