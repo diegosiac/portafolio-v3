@@ -1,0 +1,57 @@
+---
+import "atropos/css"
+import Atropos from "atropos/react"
+
+interface Props {
+	badgeUrl: string
+	size?: number
+}
+
+const { size = 170, badgeUrl } = Astro.props
+
+const height = size
+const width = size
+---
+
+<Atropos
+	highlight={true}
+	className="block w-max shadow-2xl [box-sizing:border-box]"
+	innerClassName="rounded-xl overflow-visible "
+	rotateClassName="![transform-style:unset]"
+	scaleClassName="![transform-style:unset]"
+	client:only="react"
+>
+	<div class="relative bg-primary-blur">
+		<div
+			class="relative z-10"
+			style={{ height: `${height + 20}px`, width: `${width + 20}px` }}
+		>
+			<img
+				data-atropos-offset="-4"
+				src={badgeUrl}
+				class="absolute left-0 top-0 z-0 aspect-square object-cover"
+				style={{
+					height: `${height + 40}px`,
+					width: `${width + 40}px`,
+				}}
+			/>
+
+			<div
+				data-atropos-offset="0"
+				class="relative z-10 size-full backdrop-blur-lg"
+			>
+			</div>
+		</div>
+
+		<img
+			data-atropos-offset="3"
+			src={badgeUrl}
+			class="absolute left-2.5 top-2.5 z-20 aspect-square object-cover"
+			style={{
+				height: `${height}px`,
+				width: `${width}px`,
+				transformStyle: "preserve-3d",
+			}}
+		/>
+	</div>
+</Atropos>
