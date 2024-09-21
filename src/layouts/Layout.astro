@@ -5,10 +5,11 @@ import "@fontsource-variable/tilt-neon"
 import "@fontsource-variable/ubuntu-sans"
 import "@fontsource-variable/tourney"
 
-import { ViewTransitions } from "astro:transitions"
-import NavBar from "@/components/NavBar.astro"
+import { ClientRouter } from 'astro:transitions';
+import { Header } from "@/components/Header"
 import Footer from "@/components/Footer.astro"
 import { MAX_WIDTH } from "@/consts"
+import ThemeToggle from "@/components/ThemeToggle.astro"
 interface Props {
 	title: string
 	description: string
@@ -26,10 +27,11 @@ const { title, description } = Astro.props
 		<meta name="description" content={description} />
 		<script is:inline>
 			function setDarkMode(document) {
-				const theme = localStorage.getItem("theme")
+				const theme = localStorage.getItem("theme") ?? "dark"
 
-				document.documentElement.classList.toggle("dark", theme == "dark")
+				document.documentElement.classList.toggle("dark", theme === "dark")
 			}
+
 			setDarkMode(document)
 
 			document.addEventListener("astro:before-swap", (ev) => {
@@ -50,14 +52,16 @@ const { title, description } = Astro.props
 			})
 		</script>
 
-		<ViewTransitions />
+		<ClientRouter />
 	</head>
 	<body class="relative bg-primary text-primary">
 		<div
 			class="background-page absolute left-0 top-0 z-[-40] h-full min-h-screen w-full bg-gray-50"
 		>
 		</div>
-		<NavBar />
+		<Header client:only="react">
+			<ThemeToggle slot="buttonTheme" />
+		</Header>
 		<main
 			class="mx-auto flex w-full max-w-10 flex-col px-4"
 			style={`max-width: ${MAX_WIDTH}px;`}
@@ -67,10 +71,29 @@ const { title, description } = Astro.props
 		<Footer />
 		<style is:global>
 			:root {
+				--background: 43 64% 98%;
+				--foreground: 60 3% 14%;
+
+				--accent: 210 40% 96.1%;
+				--accent-foreground: 222.2 47.4% 11.2%;
+
+				--muted: 210 40% 96.1%;
+				--muted-foreground: 215.4 16.3% 46.9%;
+
+				--popover: 0 0% 100%;
+				--popover-foreground: 222.2 47.4% 11.2%;
+
+				--border: 60 3% 14%;
+				--input: 214.3 31.8% 91.4%;
+
+				--ring: 215 20.2% 65.1%;
+
+				--radius: 0.5rem;
+
 				--color-primary: 60 3% 14%;
 				--color-secondary: 43 64% 98%;
 
-				--color-orange: 36 100% 48%;
+				--color-orange: 36 100% 62%;
 
 				--color-green: #5ad539;
 
@@ -98,10 +121,29 @@ const { title, description } = Astro.props
 			}
 
 			.dark {
+				--background: 60 3% 14%;
+				--foreground: 43 64% 98%;
+
+				--muted: 223 47% 11%;
+				--muted-foreground: 215.4 16.3% 56.9%;
+
+				--accent: 216 34% 17%;
+				--accent-foreground: 210 40% 98%;
+
+				--popover: 224 71% 4%;
+				--popover-foreground: 215 20.2% 65.1%;
+
+				--border: 43 64% 98%;
+				--input: 216 34% 17%;
+
+				--ring: 216 34% 17%;
+
+				--radius: 0.5rem;
+
 				--color-primary: 43 64% 98%;
 				--color-secondary: 60 3% 14%;
 
-				--color-orange: 36 100% 55%;
+				--color-orange: 36 100% 61%;
 
 				--color-primary-blur: #fdfbf630;
 				--color-secondary-blur: #2424226e;
@@ -124,11 +166,15 @@ const { title, description } = Astro.props
 				--background-color: #242422;
 			}
 
-			.background-page {
-				background-color: var(--background-color);
-				background-image: var(--background-image);
-				background-size: cover;
-				background-blend-mode: multiply, darken, multiply, darken, overlay;
+			* {
+				@apply border-border;
+			}
+
+			body {
+				@apply bg-background text-foreground;
+				font-feature-settings:
+					"rlig" 1,
+					"calt" 1;
 			}
 
 			html {
@@ -145,6 +191,13 @@ const { title, description } = Astro.props
 				html {
 					scroll-behavior: smooth;
 				}
+			}
+
+			.background-page {
+				background-color: var(--background-color);
+				background-image: var(--background-image);
+				background-size: cover;
+				background-blend-mode: multiply, darken, multiply, darken, overlay;
 			}
 
 			/* Hiding class, making content visible only to screen readers but not visually */
@@ -187,6 +240,19 @@ const { title, description } = Astro.props
 				background: linear-gradient(270deg, #7a7a7a33, #f000 60.71%),
 					linear-gradient(0deg, #7a7a7a33, #0f00 60.71%),
 					linear-gradient(90deg, #7a7a7a33, #00f0 60.71%);
+			}
+
+			#header-nav {
+				animation: header linear both;
+				animation-timeline: scroll();
+				animation-range: 0 500px;
+			}
+
+			@keyframes header {
+				to {
+					background-color: var(--color-primary-blur);
+					backdrop-filter: blur(12px);
+				}
 			}
 
 			.reveal {
