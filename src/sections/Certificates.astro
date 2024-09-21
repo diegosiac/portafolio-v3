@@ -1,0 +1,23 @@
+---
+import AwsCertificateBadgeAstro from "@/components/aws-certificate-badge.astro"
+import { MAX_WIDTH } from "@/consts"
+import Certificate from "@/icons/certificate.astro"
+import SectionLayout from "@/layouts/SectionLayout.astro"
+---
+
+<SectionLayout
+	sectionName="Mis Certificados"
+	title="Revisa mis últimos certificados"
+	description="Puedes saber más sobre mis certificados haciendo click sobre ellos."
+>
+	<Certificate class="inline-block size-6" slot="icon" />
+
+	<div
+		class="mx-auto mt-12 flex flex-wrap justify-center gap-5"
+		style={`max-width: ${MAX_WIDTH}px`}
+	>
+		<AwsCertificateBadgeAstro
+			badgeUrl="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
+		/>
+	</div>
+</SectionLayout>

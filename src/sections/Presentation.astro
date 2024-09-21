@@ -1,4 +1,5 @@
 ---
+import { CommandDemo } from "@/components/command-about"
 import GitHub from "@/icons/github.astro"
 import LinkedIn from "@/icons/linkedin.astro"
 import Mail from "@/icons/mail.astro"
@@ -7,7 +8,7 @@ import { Image } from "astro:assets"
 
 <section class="flex h-screen gap-20 pb-10 pt-24">
 	<div class="flex w-min flex-col justify-between">
-		<h1 class="font-ubuntu text-8xl font-black leading-none">
+		<h1 class="font-oxanium text-8xl font-black leading-none">
 			Diego Cruz
 			<span
 				class="-ml-3 inline-flex size-4 animate-fade-in-up items-center justify-center animate-duration-200"
@@ -45,13 +46,15 @@ import { Image } from "astro:assets"
 			class="absolute bottom-0 left-[35px] h-[600px] w-[700px] animate-fade-in-up object-cover animate-duration-200"
 		/>
 		<p
-			class="absolute left-0 top-44 flex max-w-[30ch] flex-col font-oxanium text-xs leading-tight"
+			class="absolute left-3 top-[215px] flex max-w-[30ch] flex-col font-oxanium text-xs leading-tight"
 		>
 			<span class="pb-2 font-tourney text-base"> X/DIEGOSIAC </span>
 
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quasi maxime
 			iste
 		</p>
+
+		<CommandDemo client:only="react" />
 
 		<p
 			class="absolute right-0 top-0 flex rotate-90 flex-col border-b border-primary font-oxanium text-xl font-medium leading-tight"
@@ -86,16 +89,13 @@ import { Image } from "astro:assets"
 			</a>
 		</div>
 		<div
-			class="absolute bottom-0 -z-10 h-1/2 w-full rounded-xl bg-orange/70 backdrop-blur-md"
+			class="absolute bottom-0 -z-10 h-1/2 w-full rounded-xl bg-orange/70 shadow-xl backdrop-blur-md"
 		>
+			<div class="bg-image size-full dark:invert"></div>
 		</div>
 	</div>
 
-	<div
-		class="framer"
-		data-framer-name="Image"
-		style="transform: translateX(-50%);"
-	>
+	<div class="framer" style="transform: translateX(-50%);">
 		<Image
 			class="opacity-90 invert dark:opacity-45 dark:invert-0"
 			src="/images/backgrounds/Vv1CCa0nUgZDiVRn6YGpyBM.png"
@@ -111,12 +111,19 @@ import { Image } from "astro:assets"
 	.framer {
 		aspect-ratio: 1.12269 / 1;
 		flex: 0 0 auto;
-		height: var(--framer-aspect-ratio-supported, 1247px);
+		height: 1247px;
 		left: 50%;
 		overflow: visible;
 		position: absolute;
 		top: 0px;
 		width: 1400px;
 		z-index: -40;
+	}
+
+	.bg-image {
+		background-image: url("/public/images/backgrounds/Remove background project.png");
+		background-position: 420px -100px;
+		background-repeat: no-repeat;
+		background-size: 300px;
 	}
 </style>

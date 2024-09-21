@@ -1,11 +1,15 @@
 ---
+import SectionLayout from "@/layouts/SectionLayout.astro"
 import CodeAsterix from "../icons/code-asterix.astro"
 ---
 
-<section class="mt-20">
-	<h2 class="flex items-center gap-5 text-2xl font-bold">
-		<CodeAsterix class="size-8 stroke-2" /> Mis Proyectos
-	</h2>
+<SectionLayout
+	sectionName="Mis Proyectos"
+	title="Mira mis últimos trabajos"
+	description="He trabajado en una variedad de proyectos, desde sitios web sencillos hasta aplicaciones web complejas. Estos son algunos de mis favoritos."
+>
+	<CodeAsterix class="inline-block size-6 stroke-2" slot="icon" />
 
-	<div class="mt-5"></div>
-</section>
+	<div class="mx-auto mt-12 flex max-w-prose flex-wrap justify-center gap-5">
+	</div>
+</SectionLayout>

@@ -5,29 +5,21 @@ import Tool from "@/icons/tool.astro"
 
 // icons
 
-import Angular from "@/icons/angular.astro"
 import Aws from "@/icons/aws.astro"
-import Cypress from "@/icons/cypress.astro"
-import Django from "@/icons/django.astro"
 import Docker from "@/icons/docker.astro"
-import ExpressJs from "@/icons/expressjs.astro"
-import Git from "@/icons/git.astro"
-import JavaScript from "@/icons/javascript.astro"
-import Jest from "@/icons/jest.astro"
+import GO from "@/icons/go.astro"
+import Kubernetes from "@/icons/kubernetes.astro"
 import NestJS from "@/icons/nestjs.astro"
 import NextJS from "@/icons/nextjs.astro"
 import NodeJs from "@/icons/nodejs.astro"
-import Playwright from "@/icons/playwright.astro"
 import PostgreSQL from "@/icons/postgresql.astro"
-import Python from "@/icons/python.astro"
 import React from "@/icons/react.astro"
 import Redis from "@/icons/redis.astro"
+import Rust from "@/icons/rust.astro"
+import TypeScript from "@/icons/typescript.astro"
 ---
 
-<section class="mt-20 h-screen">
-	<h2 class="flex items-center gap-5 text-2xl font-bold">
-		<Tool class="size-8 stroke-2" /> Mi Stack de Desarrollo
-	</h2>
+<section class="h-screen mt-20">
 
 	<div class="relative flex h-full w-full items-center justify-center">
 		<h3
@@ -38,64 +30,49 @@ import Redis from "@/icons/redis.astro"
 
 		<div class="grid w-max grid-cols-4 gap-2 sm:grid-cols-5">
 			<GroupSkill>
-				<CardSkill skill="JavaScript" client:only="preact">
-					<JavaScript class="size-8" />
+				<CardSkill skill="Rust" client:only="react">
+					<Rust class="size-8" />
 				</CardSkill>
-				<CardSkill skill="React" client:only="preact">
-					<React class="size-8" />
-				</CardSkill>
-				<CardSkill skill="Playwright" client:only="preact">
-					<Playwright class="size-10" />
+				<CardSkill skill="GO" client:only="react">
+					<GO class="size-10" />
 				</CardSkill>
 			</GroupSkill>
 			<GroupSkill>
-				<CardSkill skill="PostgreSQL" client:only="preact">
-					<PostgreSQL class="size-8" />
-				</CardSkill>
-				<CardSkill skill="Docker" client:only="preact">
+				<CardSkill skill="Docker" client:only="react">
 					<Docker class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Django" client:only="preact">
-					<Django class="size-8" />
+				<CardSkill skill="Kubernetes" client:only="react">
+					<Kubernetes class="size-8" />
 				</CardSkill>
-				<CardSkill skill="NodeJs" client:only="preact">
+				<CardSkill skill="AWS" client:only="react">
+					<Aws class="size-8" />
+				</CardSkill>
+			</GroupSkill>
+			<GroupSkill>
+				<CardSkill skill="TypeScript" client:only="react">
+					<TypeScript class="size-8" />
+				</CardSkill>
+				<CardSkill skill="NodeJs" client:only="react">
 					<NodeJs class="size-10" />
 				</CardSkill>
 			</GroupSkill>
 			<GroupSkill>
-				<CardSkill skill="Python" client:only="preact">
-					<Python class="size-10" />
+				<CardSkill skill="React" client:only="react">
+					<React class="size-8" />
 				</CardSkill>
-				<CardSkill skill="NextJS" client:only="preact">
+				<CardSkill skill="NestJS" client:only="react">
+					<NestJS class="size-8" />
+				</CardSkill>
+				<CardSkill skill="NextJS" client:only="react">
 					<NextJS class="size-8" />
-				</CardSkill>
-				<CardSkill skill="Angular" client:only="preact">
-					<Angular class="size-8" />
 				</CardSkill>
 			</GroupSkill>
 			<GroupSkill>
-				<CardSkill skill="Cypress" client:only="preact">
-					<Cypress class="size-10" />
+				<CardSkill skill="PostgreSQL" client:only="react">
+					<PostgreSQL class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Jest" client:only="preact">
-					<Jest class="size-8" />
-				</CardSkill>
-				<CardSkill skill="NestJS" client:only="preact">
-					<NestJS class="size-8" />
-				</CardSkill>
-				<CardSkill skill="AWS" client:only="preact">
-					<Aws class="size-8" />
-				</CardSkill>
-			</GroupSkill>
-			<GroupSkill class="hidden sm:flex">
-				<CardSkill skill="Redis" client:only="preact">
-					<Redis class="size-8" />
-				</CardSkill>
-				<CardSkill skill="ExpressJs" client:only="preact">
-					<ExpressJs class="size-8" />
-				</CardSkill>
-				<CardSkill skill="Git" client:only="preact">
-					<Git class="size-8" />
+				<CardSkill skill="Redis" client:only="react">
+					<Redis class="size-10" />
 				</CardSkill>
 			</GroupSkill>
 		</div>
