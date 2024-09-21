@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { type ComponentChildren } from "preact"
-import { useRef } from "preact/hooks"
+import { useRef, type ReactNode } from "react"
 
 interface TextRevealByWordProps {
 	text: string
@@ -48,7 +47,7 @@ export const TextRevealByWord = ({
 }
 
 interface WordProps {
-	children: ComponentChildren
+	children: ReactNode
 	progress: any
 	range: [number, number]
 }
