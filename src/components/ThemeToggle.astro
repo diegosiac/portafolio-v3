@@ -1,8 +1,6 @@
 ---
 import SunIcon from "@/icons/sun.astro"
 import MoonIcon from "@/icons/moon.astro"
-
-import { DARK_THEME, LIGHT_THEME } from "@/consts"
 ---
 
 <button
@@ -21,10 +19,10 @@ import { DARK_THEME, LIGHT_THEME } from "@/consts"
 	<span class="sr-only"></span>
 </button>
 
-<script
-	is:inline
-	define:vars={{ darkTheme: DARK_THEME, lightTheme: LIGHT_THEME }}
->
+<script>
+	const darkTheme = "dark"
+	const lightTheme = "light"
+
 	function handleToggleClick() {
 		const element = document.documentElement
 		element.classList.toggle(darkTheme)
@@ -35,16 +33,19 @@ import { DARK_THEME, LIGHT_THEME } from "@/consts"
 		updateThemeMessage(isDark)
 	}
 
-	function updateThemeMessage(theme) {
+	function updateThemeMessage(theme: boolean) {
 		const translation = theme ? "oscuro" : "claro"
 		const actualThemeMsg = `Alternar tema, el tema actual es ${translation}`
 		const span = document.querySelector("span.sr-only")
-		span.innerHTML = actualThemeMsg
+
+		if (span) {
+			span.innerHTML = actualThemeMsg
+		}
 
 		window.dispatchEvent(new Event("theme-changed"))
 	}
 
-	const handleThemePreferenceChange = (e) => {
+	const handleThemePreferenceChange = (e: MediaQueryListEvent) => {
 		const isDark = document.documentElement.classList.contains("dark")
 		const toggle = (e.matches && !isDark) || (!e.matches && isDark)
 		if (toggle) handleToggleClick()
@@ -56,9 +57,9 @@ import { DARK_THEME, LIGHT_THEME } from "@/consts"
 		darkModePreference.addListener(handleThemePreferenceChange) // backward compatibility
 
 		document
-			.getElementById("themeToggle")
-			.addEventListener("click", handleToggleClick)
+			?.getElementById("themeToggle")
+			?.addEventListener("click", handleToggleClick)
 
-		updateThemeMessage(window.getThemePreference())
+		updateThemeMessage(window.getThemePreference() === darkTheme)
 	})
 </script>

@@ -1,5 +1,6 @@
 ---
 import type { Experience } from "@/interfaces"
+import { Separator } from "./ui/separator"
 
 interface Props {
 	experience: Experience
@@ -7,7 +8,15 @@ interface Props {
 
 const { experience } = Astro.props
 
-const { company, description, period, position, isLast } = experience
+const {
+	company,
+	description,
+	startPeriod,
+	endPeriod,
+	position,
+	isLast,
+	urlCompany,
+} = experience
 ---
 
 <article class="flex gap-5">
@@ -28,17 +37,34 @@ const { company, description, period, position, isLast } = experience
 		<div class="dotted-spaced absolute left-1/2 h-full w-1 -translate-x-1/2">
 		</div>
 	</div>
-	<div class="flex flex-col gap-10 md:flex-row">
-		<div class="text-balance">
-			<h3 class="text-xl font-bold text-orange">{position}</h3>
-			<p class="max-w-[40ch] text-xl font-semibold">
-				{company}
-			</p>
-			<p class="text-primary-inactive">{period}</p>
+
+	<div
+		class="flex items-center gap-3 rounded-lg bg-primary-blur p-5 backdrop-blur-sm"
+	>
+		<div
+			class="flex flex-col items-center justify-center gap-2 text-balance text-center font-oxanium text-xs font-bold"
+		>
+			<span>{endPeriod}</span>
+			<Separator className="w-2/3" />
+			<span>{startPeriod}</span>
 		</div>
-		<p class="max-w-[40ch]">
-			{description}
-		</p>
+		<Separator orientation="vertical" className="h-2/3" />
+		<div>
+			<h4 class="text-balance text-xl font-bold leading-none text-orange">
+				{position}
+			</h4>
+			<a
+				class="text-balance text-lg font-semibold hover:underline"
+				target="_blank"
+				rel="noreferrer noopener"
+				href={urlCompany}
+			>
+				{company}
+			</a>
+			<p class="mt-1 max-w-[40ch] text-sm">
+				{description}
+			</p>
+		</div>
 	</div>
 </article>
 

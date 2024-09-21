@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks"
+import { useState, type MouseEvent } from "react"
 
 interface Props {
 	skill: string
@@ -16,10 +16,12 @@ export const CardSkill = ({ skill, children }: Props) => {
 		setOpacity(1)
 	}
 
-	const handleMouseMove = (e: any) => {
+	const handleMouseMove = (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
+		const element = e.nativeEvent
+
 		setPosition({
-			x: e.layerX - 15,
-			y: e.layerY - 15,
+			x: (element.layerX - 15) / 2,
+			y: (element.layerY - 15) / 2,
 		})
 	}
 
@@ -29,26 +31,26 @@ export const CardSkill = ({ skill, children }: Props) => {
 
 	return (
 		<div
-			class="reveal relative overflow-hidden rounded bg-secondary-blur shadow-2xl"
+			className="reveal relative overflow-hidden rounded bg-secondary-blur shadow-2xl"
 			onMouseMove={handleMouseMove}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 		>
 			<div
 				id="spotlight"
-				class="pointer-events-none absolute -inset-px transform-gpu opacity-0 transition duration-300 [&>astro-slot>svg]:size-16"
-				style={`
-					opacity: ${opacity};
-					left: ${position.x}px;
-					top: ${position.y}px;
-				`}
+				className="pointer-events-none absolute -inset-px transform-gpu opacity-0 transition duration-300 [&>astro-slot>svg]:size-16"
+				style={{
+					opacity: `${opacity}`,
+					left: `${position.x}px`,
+					top: `${position.y}px`,
+				}}
 			>
 				{children}
 			</div>
 
-			<div class="flex w-[80px] flex-col items-center justify-between gap-4 p-2 text-center backdrop-blur-lg">
+			<div className="flex w-[80px] flex-col items-center justify-between gap-4 p-2 text-center backdrop-blur-lg">
 				{children}
-				<p class="text-xs font-semibold">{skill}</p>
+				<p className="text-xs font-semibold">{skill}</p>
 			</div>
 		</div>
 	)
