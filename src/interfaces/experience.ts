@@ -1,7 +1,9 @@
 export interface Experience {
+	urlCompany: string
 	company: string
 	position: string
-	period: string
+	startPeriod: string
+	endPeriod: string
 	description: string
 	isLast?: boolean
 }
