@@ -25,7 +25,10 @@ export default {
 				ring: "hsl(var(--ring))",
 				background: "hsl(var(--background))",
 				foreground: "hsl(var(--foreground))",
-				primary: "hsl(var(--color-primary))",
+				primary: {
+					DEFAULT: "hsl(var(--primary))",
+					foreground: "hsl(var(--primary-foreground))",
+				},
 				secondary: "hsl(var(--color-secondary))",
 				orange: "hsl(var(--color-orange))",
 				green: "var(--color-green)",
@@ -45,9 +48,6 @@ export default {
 			backgroundColor: {
 				"primary-blur": "var(--color-primary-blur)",
 				"secondary-blur": "var(--color-secondary-blur)",
-			},
-			textColor: {
-				"primary-inactive": "var(--color-primary-inactive)",
 			},
 			borderRadius: {
 				lg: `var(--radius)`,
