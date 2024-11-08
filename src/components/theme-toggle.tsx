@@ -49,7 +49,7 @@ export const ThemeToggle = () => {
 		const handleChange = (e: MediaQueryListEvent) => {
 			setIsDarkMode(e.matches);
 		};
-1
+		1
 		systemPrefersDark.addEventListener("change", handleChange);
 
 		return () => {
@@ -60,7 +60,7 @@ export const ThemeToggle = () => {
 	return (
 		<button
 			onClick={toggleTheme}
-			className="inline-flex rounded px-4 py-1 text-primary-inactive hover:text-primary bg-transparent overflow-hidden size-full"
+			className="inline-flex rounded px-4 py-1 overflow-hidden size-full"
 		>
 			<span className="sr-only">
 				{isDarkMode ? "Cambiar al modo oscuro" : "Cambiar al modo claro"}

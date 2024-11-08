@@ -45,11 +45,11 @@ export function Header({ buttonTheme }: { buttonTheme?: ReactNode }) {
 	};
 
 	return (
-		<header id="header-nav" className="fixed left-1/2 top-5 z-50 flex w-min -translate-x-1/2 items-center rounded-md p-1 text-primary">
+		<header id="header-nav" className="fixed left-1/2 top-5 z-50 flex w-min -translate-x-1/2 items-center rounded-md p-1">
 			<nav>
 				<ul
 					onMouseLeave={handleMouseLeave}
-					className="flex text-primary-inactive relative"
+					className="flex relative hover:[&>li]:text-background [&>li]:duration-200 [&>li]:transition-colors"
 					ref={ref}
 				>
 					{navs.map((item) => (
@@ -59,7 +59,7 @@ export function Header({ buttonTheme }: { buttonTheme?: ReactNode }) {
 							className="z-10 block"
 						>
 							<a
-								className="inline-block px-4 py-1.5 font-medium transition-colors duration-200  hover:text-primary text-primary/60 tracking-tight"
+								className="inline-block px-4 py-1.5 font-medium tracking-tight"
 								href={item.href}>
 								{item.name}
 							</a>
@@ -74,7 +74,7 @@ export function Header({ buttonTheme }: { buttonTheme?: ReactNode }) {
 					<motion.li
 						animate={{ left, width, opacity }}
 						transition={{ type: "spring", stiffness: 400, damping: 30 }}
-						className="absolute inset-0 rounded bg-secondary"
+						className="absolute inset-0 rounded bg-foreground"
 					/>
 				</ul>
 			</nav>
