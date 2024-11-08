@@ -5,11 +5,10 @@ import "@fontsource-variable/tilt-neon"
 import "@fontsource-variable/ubuntu-sans"
 import "@fontsource-variable/tourney"
 
-import { ClientRouter } from 'astro:transitions';
+import { ClientRouter } from "astro:transitions"
 import { Header } from "@/components/Header"
 import Footer from "@/components/Footer.astro"
 import { MAX_WIDTH } from "@/consts"
-import ThemeToggle from "@/components/ThemeToggle.astro"
 interface Props {
 	title: string
 	description: string
@@ -54,14 +53,12 @@ const { title, description } = Astro.props
 
 		<ClientRouter />
 	</head>
-	<body class="relative bg-primary text-primary">
+	<body class="relative bg-background text-foreground">
 		<div
 			class="background-page absolute left-0 top-0 z-[-40] h-full min-h-screen w-full bg-gray-50"
 		>
 		</div>
-		<Header client:only="react">
-			<ThemeToggle slot="buttonTheme" />
-		</Header>
+		<Header client:only="react" />
 		<main
 			class="mx-auto flex w-full max-w-10 flex-col px-4"
 			style={`max-width: ${MAX_WIDTH}px;`}
@@ -90,7 +87,9 @@ const { title, description } = Astro.props
 
 				--radius: 0.5rem;
 
-				--color-primary: 60 3% 14%;
+				--primary: 60 3% 14%;
+				--primary-foreground: 60 3% 14%;
+
 				--color-secondary: 43 64% 98%;
 
 				--color-orange: 36 100% 62%;
@@ -99,8 +98,6 @@ const { title, description } = Astro.props
 
 				--color-primary-blur: #24242238;
 				--color-secondary-blur: #fdfbf630;
-
-				--color-primary-inactive: #4d4d4c;
 
 				--background-track-scroll: #242422;
 				--background-corner-scroll: #242422;
@@ -124,7 +121,7 @@ const { title, description } = Astro.props
 				--background: 60 3% 14%;
 				--foreground: 43 64% 98%;
 
-				--muted: 223 47% 11%;
+				--muted: 37 10% 79%;
 				--muted-foreground: 215.4 16.3% 56.9%;
 
 				--accent: 216 34% 17%;
@@ -140,15 +137,15 @@ const { title, description } = Astro.props
 
 				--radius: 0.5rem;
 
-				--color-primary: 43 64% 98%;
+				--primary: 43 64% 98%;
+				--primary-foreground: 43 64% 98%;
+
 				--color-secondary: 60 3% 14%;
 
 				--color-orange: 36 100% 61%;
 
 				--color-primary-blur: #fdfbf630;
 				--color-secondary-blur: #2424226e;
-
-				--color-primary-inactive: #dddddd;
 
 				--background-corner-scroll: #242422;
 				--background-track-scroll: #242422;
@@ -219,7 +216,7 @@ const { title, description } = Astro.props
 
 			::-webkit-scrollbar-thumb {
 				border-radius: 10px;
-				background-color: theme("colors.primary");
+				background-color: theme("colors.primary.DEFAULT");
 				border: 2px solid transparent;
 				background-clip: content-box;
 			}
@@ -229,7 +226,7 @@ const { title, description } = Astro.props
 			}
 
 			::-webkit-scrollbar-corner {
-				background: theme("colors.primary");
+				background: theme("colors.primary.DEFAULT");
 			}
 
 			.btn {
