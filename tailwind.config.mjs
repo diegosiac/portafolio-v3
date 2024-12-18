@@ -14,10 +14,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				"oxanium": ["Oxanium Variable", "system-ui", "sans-serif"],
-				"tilt-neon": ["Tilt Neon Variable", "system-ui", "sans-serif"],
-				"ubuntu": ["Ubuntu Sans Variable", "system-ui", "sans-serif"],
-				"tourney": ["Tourney Variable", "system-ui", "sans-serif"],
+				oxanium: ["Oxanium Variable", "system-ui", "sans-serif"],
+				tourney: ["Tourney Variable", "system-ui", "sans-serif"],
+				onest: ["Onest Variable", "system-ui", "sans-serif"],
 			},
 			colors: {
 				border: "hsl(var(--border))",
@@ -62,6 +61,9 @@ export default {
 			boxShadowColor: {
 				glow: "var(--box-shadow-glows)",
 			},
+			animation: {
+				ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
+			},
 			keyframes: {
 				"ping2": {
 					"75%, 100%": { transform: "scale(2)", opacity: 0 },
@@ -78,6 +80,14 @@ export default {
 				"accordion-up": {
 					from: { height: "var(--radix-accordion-content-height)" },
 					to: { height: "0" },
+				},
+				"ripple": {
+					"0%, 100%": {
+						transform: "translate(-50%, -50%) scale(1)",
+					},
+					"50%": {
+						transform: "translate(-50%, -50%) scale(0.9)",
+					},
 				},
 			},
 		},
