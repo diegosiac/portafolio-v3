@@ -1,58 +1,14 @@
 ---
-import { TrianglesPattern } from "../components/ui/triangles-pattern"
+import { AboutMeAside } from "@/components/about-me-aside"
+import { AboutMeCard } from "@/components/about-me-card"
+import SectionLayout from "@/layouts/SectionLayout.astro"
 ---
 
-<section class="relative mt-20">
-	<div
-		class="mt-5 flex overflow-hidden rounded-3xl bg-orange/70 font-oxanium shadow-xl backdrop-blur-md"
-	>
-		<article class="flex flex-1 items-center justify-center p-5">
-			<div class="flex max-w-[40ch] flex-col gap-6">
-				<h2 class="flex items-center gap-5 text-5xl font-bold">
-					Esta es mi historia
-				</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, impedit
-					reprehenderit similique quos alias animi libero obcaecati tempore
-					consequuntur ut delectus atque eligendi quia id, cum maiores deleniti
-					assumenda illo.
-				</p>
-			</div>
-		</article>
-		<aside
-			class="relative h-[500px] w-[400px] [&>span]:absolute [&>span]:font-bold [&>span]:leading-none"
-		>
-			<span
-				class="animate -right-9 top-16 z-50 text-9xl !duration-250 dark:animate-fade-in-left"
-				style="animation-delay: 50ms;">DIE</span
-			>
-			<span
-				class="-left-0 top-40 z-10 text-[7rem] !duration-250 dark:animate-fade-in-right"
-				style="animation-delay: 100ms;">EG</span
-			>
-			<span
-				class="-right-0 top-[12.5rem] z-10 text-[7rem] !duration-250 dark:animate-fade-in-left"
-				style="animation-delay: 200ms;">GO</span
-			>
-			<img
-				src="/aaypaes8h-removebg-preview.png"
-				class="absolute left-0 top-0 z-30 h-[500px]"
-			/>
-			<span
-				class="bottom-[6rem] left-0 z-10 text-[7rem] text-orange !duration-250 dark:animate-fade-in-left"
-				style="animation-delay: 230ms;">CR</span
-			>
-			<span
-				class="bottom-4 right-0 z-50 text-[9.5rem] text-orange !duration-250 dark:animate-fade-in-right"
-				style="animation-delay: 270ms;">UZ</span
-			>
-			<div
-				class="bg-image absolute z-50 size-full bg-gradient-to-l from-orange/50 via-transparent"
-			>
-			</div>
-			<TrianglesPattern client:visible />
-		</aside>
-	</div>
-</section>
-
-<style></style>
+<SectionLayout
+	nonMaxWidth
+	containerClassName="!pt-0 !px-0"
+	className="relative flex flex-col gap-5 overflow-hidden bg-[#f5bf6e] shadow-xl backdrop-blur-md dark:text-background md:h-[500px] md:flex-row"
+>
+	<AboutMeCard client:only="react" />
+	<AboutMeAside client:visible />
+</SectionLayout>
