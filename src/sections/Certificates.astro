@@ -1,23 +1,47 @@
 ---
-import AwsCertificateBadgeAstro from "@/components/aws-certificate-badge.astro"
-import { MAX_WIDTH } from "@/consts"
+import CertificateCard from "@/components/certificate-card.astro"
+import Aws from "@/icons/aws.astro"
 import Certificate from "@/icons/certificate.astro"
+import Terraform from "@/icons/terraform.astro"
 import SectionLayout from "@/layouts/SectionLayout.astro"
 ---
 
 <SectionLayout
-	sectionName="Mis Certificados"
+	sectionName="Certificados"
 	title="Revisa mis últimos certificados"
 	description="Puedes saber más sobre mis certificados haciendo click sobre ellos."
 >
 	<Certificate class="inline-block size-6" slot="icon" />
 
-	<div
-		class="mx-auto mt-12 flex flex-wrap justify-center gap-5"
-		style={`max-width: ${MAX_WIDTH}px`}
-	>
-		<AwsCertificateBadgeAstro
-			badgeUrl="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
-		/>
+	<div class="mx-auto mt-20 flex flex-wrap justify-center gap-8">
+		<CertificateCard
+			imageUrl="https://images.credly.com/size/340x340/images/85b9cfc4-257a-4742-878c-4f7ab4a2631b/image.png"
+			certificateUrl="#"
+			name="Terraform Certified Associate"
+			dateOfIssue="En 2025"
+			colorIcon="#fff"
+		>
+			<Terraform class="size-6" slot="icon" />
+		</CertificateCard>
+
+		<CertificateCard
+			imageUrl="https://images.credly.com/size/340x340/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png"
+			certificateUrl="#"
+			name="AWS Certified Developer Associate"
+			dateOfIssue="En 2025"
+			colorIcon="#fff"
+		>
+			<Aws class="size-6" slot="icon" />
+		</CertificateCard>
+
+		<CertificateCard
+			imageUrl="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
+			certificateUrl="https://cp.certmetrics.com/amazon/en/public/verify/credential/40391940f1624728b9520bd74e9330e8"
+			name="AWS Certified Cloud Practitioner"
+			dateOfIssue="Sep 2024"
+			colorIcon="#fff"
+		>
+			<Aws class="size-6" slot="icon" />
+		</CertificateCard>
 	</div>
 </SectionLayout>
