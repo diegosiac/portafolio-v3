@@ -1,0 +1,44 @@
+---
+import { Container3D } from "@/components/ui/container-3d"
+import { Image } from "astro:assets"
+
+interface Props {
+	name: string
+	dateOfIssue: string
+	imageUrl: string
+	colorIcon: string
+	certificateUrl: string
+}
+
+const { name, dateOfIssue, imageUrl, colorIcon, certificateUrl } = Astro.props
+---
+
+<Container3D client:only="react">
+	<a
+		href={certificateUrl}
+		class="relative flex h-56 w-80 flex-col justify-between overflow-hidden rounded-md bg-[#e1e0db] p-4 shadow-sm dark:bg-[#e7e6e038]"
+		target="_blank"
+		rel="noreferrer noopener"
+	>
+		<Image
+			src={imageUrl}
+			alt={name}
+			width={100}
+			height={100}
+			class="absolute -right-40 top-0 h-full w-full object-cover blur-[2px]"
+		/>
+
+		<div
+			class="flex size-10 items-center justify-center rounded-sm shadow-md"
+			style={{
+				backgroundColor: colorIcon,
+			}}
+		>
+			<slot name="icon" />
+		</div>
+
+		<h4 class="max-w-44 text-balance font-bold">{name}</h4>
+
+		<span class="text-xs font-medium opacity-80">{dateOfIssue}</span>
+	</a>
+</Container3D>
