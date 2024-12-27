@@ -1,14 +1,12 @@
 ---
 import "@fontsource-variable/onest"
 import "@fontsource-variable/oxanium"
-import "@fontsource-variable/tilt-neon"
-import "@fontsource-variable/ubuntu-sans"
 import "@fontsource-variable/tourney"
 
 import { ClientRouter } from "astro:transitions"
 import { Header } from "@/components/Header"
 import Footer from "@/components/Footer.astro"
-import { MAX_WIDTH } from "@/consts"
+
 interface Props {
 	title: string
 	description: string
@@ -28,7 +26,10 @@ const { title, description } = Astro.props
 			function setDarkMode(document) {
 				const theme = localStorage.getItem("theme") ?? "dark"
 
-				document.documentElement.classList.toggle("dark", theme === "dark")
+				document.documentElement.classList.toggle(
+					"dark",
+					theme.includes("dark")
+				)
 			}
 
 			setDarkMode(document)
@@ -54,22 +55,15 @@ const { title, description } = Astro.props
 		<ClientRouter />
 	</head>
 	<body class="relative bg-background text-foreground">
-		<div
-			class="background-page absolute left-0 top-0 z-[-40] h-full min-h-screen w-full bg-gray-50"
-		>
-		</div>
 		<Header client:only="react" />
-		<main
-			class="mx-auto flex w-full max-w-10 flex-col px-4"
-			style={`max-width: ${MAX_WIDTH}px;`}
-		>
+		<main>
 			<slot />
 		</main>
 		<Footer />
 		<style is:global>
 			:root {
-				--background: 43 64% 98%;
-				--foreground: 60 3% 14%;
+				--background: 50 16% 93%;
+				--foreground: 0 4% 10%;
 
 				--accent: 210 40% 96.1%;
 				--accent-foreground: 222.2 47.4% 11.2%;
@@ -118,8 +112,8 @@ const { title, description } = Astro.props
 			}
 
 			.dark {
-				--background: 60 3% 14%;
-				--foreground: 43 64% 98%;
+				--background: 0 4% 10%;
+				--foreground: 49 14% 85%;
 
 				--muted: 37 10% 79%;
 				--muted-foreground: 215.4 16.3% 56.9%;
@@ -188,13 +182,6 @@ const { title, description } = Astro.props
 				html {
 					scroll-behavior: smooth;
 				}
-			}
-
-			.background-page {
-				background-color: var(--background-color);
-				background-image: var(--background-image);
-				background-size: cover;
-				background-blend-mode: multiply, darken, multiply, darken, overlay;
 			}
 
 			/* Hiding class, making content visible only to screen readers but not visually */
