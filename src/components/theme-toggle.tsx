@@ -1,7 +1,7 @@
-import { DARK_THEME } from "@/consts";
+import { DARK_THEME } from "@/constants/themes";
+import { useThemeStore } from "@/stores/theme-store";
 import { motion } from "framer-motion";
 import { MoonStar, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
 
 const iconVariants = {
 	light: {
@@ -23,39 +23,15 @@ const transition = {
 }
 
 export const ThemeToggle = () => {
-	const [isDarkMode, setIsDarkMode] = useState(false);
+	const theme = useThemeStore((state) => state.theme);
+	const toggleThemeStore = useThemeStore((state) => state.toggleTheme);
 
 	const toggleTheme = () => {
-		setIsDarkMode((prevMode) => !prevMode);
-
-		const theme = localStorage.getItem("theme");
-
+		toggleThemeStore();
 
 		const element = document.documentElement
 		element.classList.toggle(DARK_THEME)
-
-		if (theme === "dark") {
-			localStorage.setItem("theme", "light");
-
-		} else {
-			localStorage.setItem("theme", "dark");
-		}
-
 	};
-
-	useEffect(() => {
-		const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-		const handleChange = (e: MediaQueryListEvent) => {
-			setIsDarkMode(e.matches);
-		};
-		1
-		systemPrefersDark.addEventListener("change", handleChange);
-
-		return () => {
-			systemPrefersDark.removeEventListener("change", handleChange);
-		};
-	}, [window.matchMedia("(prefers-color-scheme: dark)")]);
 
 	return (
 		<button
@@ -63,9 +39,9 @@ export const ThemeToggle = () => {
 			className="inline-flex rounded px-4 py-1 overflow-hidden size-full"
 		>
 			<span className="sr-only">
-				{isDarkMode ? "Cambiar al modo oscuro" : "Cambiar al modo claro"}
+				{theme === DARK_THEME ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
 			</span>
-			{isDarkMode ? (
+			{theme === DARK_THEME ? (
 				<motion.div
 					key="moon"
 					variants={iconVariants}
