@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 
@@ -32,14 +33,16 @@ interface Props {
 	gridSize?: number;
 	maxTrails?: number;
 	interval?: number;
+	className?: string;
 }
 
 export const TrianglesPattern = ({
 	patternWidth = 100,
 	patternHeight = 129.9,
 	gridSize = 4,
-	maxTrails = 15,
+	maxTrails = 50,
 	interval = 1000,
+	className,
 }: Props) => {
 	const paths = useMemo(() => [
 		"M0 0 L50 0 L25 43.3 Z",
@@ -92,10 +95,10 @@ export const TrianglesPattern = ({
 	}, [getRandomPosition, paths]);
 
 	useEffect(() => {
-		const newTrail = createTrail();
+		const newTrails = Array.from({ length: 5 }).map(() => createTrail());
 
 		setActiveTrails((prevTrails) => {
-			const updatedTrails = [...prevTrails, newTrail];
+			const updatedTrails = [...prevTrails, ...newTrails];
 
 			if (updatedTrails.length > maxTrails) {
 				return updatedTrails.slice(-maxTrails);
@@ -105,44 +108,43 @@ export const TrianglesPattern = ({
 		});
 	}, [currentIndex, createTrail, maxTrails]);
 
+
 	return (
-		<div className="size-full overflow-hidden absolute inset-0">
-			<svg
-				className='size-full text-primary/30'>
-				<defs>
-					<pattern
-						id="trianglePattern"
-						width={patternWidth}
-						height={patternHeight}
-						patternUnits="userSpaceOnUse"
-					>
-						<path
-							d={paths.join(' ')}
-							fill="none"
-							stroke="currentColor"
-							strokeWidth="0.5"
-						/>
-					</pattern>
-					<filter id="glow">
-						<feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
-						<feMerge>
-							<feMergeNode in="coloredBlur" />
-							<feMergeNode in="SourceGraphic" />
-						</feMerge>
-					</filter>
-				</defs>
-				<rect width="100%" height="100%" fill="url(#trianglePattern)" />
-				<g filter="url(#glow)">
-					{activeTrails.map((trail, index) => (
-						<GlowingTrail
-							key={trail.id}
-							path={paths[trail.pathIndex]}
-							x={trail.x}
-							y={trail.y}
-						/>
-					))}
-				</g>
-			</svg>
-		</div>
+		<svg
+			className={cn('size-full', className)}>
+			<defs>
+				<pattern
+					id="trianglePattern"
+					width={patternWidth}
+					height={patternHeight}
+					patternUnits="userSpaceOnUse"
+				>
+					<path
+						d={paths.join(' ')}
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="0.5"
+					/>
+				</pattern>
+				<filter id="glow">
+					<feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
+					<feMerge>
+						<feMergeNode in="coloredBlur" />
+						<feMergeNode in="SourceGraphic" />
+					</feMerge>
+				</filter>
+			</defs>
+			<rect width="100%" height="100%" fill="url(#trianglePattern)" />
+			<g filter="url(#glow)">
+				{activeTrails.map(trail => (
+					<GlowingTrail
+						key={trail.id}
+						path={paths[trail.pathIndex]}
+						x={trail.x}
+						y={trail.y}
+					/>
+				))}
+			</g>
+		</svg>
 	)
 }
