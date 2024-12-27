@@ -1,15 +1,16 @@
 ---
+import { BentoProjects } from "@/components/bento-projects"
 import SectionLayout from "@/layouts/SectionLayout.astro"
 import CodeAsterix from "../icons/code-asterix.astro"
 ---
 
 <SectionLayout
-	sectionName="Mis Proyectos"
+	sectionName="Proyectos"
 	title="Mira mis últimos trabajos"
 	description="He trabajado en una variedad de proyectos, desde sitios web sencillos hasta aplicaciones web complejas. Estos son algunos de mis favoritos."
+	containerClassName="bg-[#e7e6e0] dark:bg-[#1f1c1c]"
 >
 	<CodeAsterix class="inline-block size-6 stroke-2" slot="icon" />
 
-	<div class="mx-auto mt-12 flex max-w-prose flex-wrap justify-center gap-5">
-	</div>
+	<BentoProjects client:only="react" />
 </SectionLayout>
