@@ -1,32 +1,49 @@
 ---
+import { MAX_WIDTH } from "@/constants/max-width"
+
 interface Props {
-	sectionName: string
-	title: string
-	description: string
+	nonMaxWidth?: boolean
+	containerClassName?: string
+	className?: string
+	sectionName?: string
+	title?: string
+	description?: string
 }
 
-const { sectionName, title, description } = Astro.props
+const {
+	className,
+	nonMaxWidth,
+	containerClassName,
+	description,
+	sectionName,
+	title,
+} = Astro.props
+
+const maxWidth = nonMaxWidth ? "none" : `${MAX_WIDTH}px`
+
+const isHeader = sectionName || title || description
 ---
 
-<section class="mt-20">
-	<header
-		class="mx-auto mb-12 flex max-w-prose flex-col items-center gap-1 text-center"
+<section class:list={["w-full px-4 py-20 md:px-0", containerClassName]}>
+	<div
+		class:list={["mx-auto w-full", className]}
+		style={`max-width: ${maxWidth}`}
 	>
-		<h2
-			class="mb-2 rounded bg-primary px-2 py-1 text-sm font-medium text-secondary"
-		>
-			<slot name="icon" />
-			<span class="ml-1">
-				{sectionName}
-			</span>
-		</h2>
-		<h3 class="text-balance text-5xl font-bold">
-			{title}
-		</h3>
-		<p class="opacity-80">
-			{description}
-		</p>
-	</header>
+		{
+			isHeader && (
+				<header class="mx-auto mb-12 flex max-w-prose flex-col items-center gap-1 text-center">
+					{sectionName && (
+						<h2 class="mb-2 rounded bg-primary px-2 py-1 text-sm font-medium text-secondary">
+							<slot name="icon" />
+							<span class="ml-1">{sectionName}</span>
+						</h2>
+					)}
+					<h3 class="text-balance text-5xl font-bold">{title}</h3>
+					<p class="opacity-80">{description}</p>
+				</header>
+			)
+		}
 
-	<slot />
+		<slot />
+	</div>
 </section>
