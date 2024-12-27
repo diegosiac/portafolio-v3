@@ -1,5 +1,5 @@
 ---
-import { MAX_WIDTH } from "@/consts"
+import { MAX_WIDTH } from "@/constants/max-width"
 import GitHub from "@/icons/github.astro"
 import LinkedIn from "@/icons/linkedin.astro"
 import Mail from "@/icons/mail.astro"
@@ -18,10 +18,10 @@ const links: Link[] = [
 
 <footer class="w-full p-5 px-5 lg:px-10">
 	<div
-		class="m-auto flex w-full flex-col items-start justify-between gap-x-5 gap-y-5 md:flex-row md:items-center"
+		class="m-auto grid w-full grid-cols-2 items-start justify-between gap-x-5 gap-y-2 md:grid-cols-3 md:flex-row md:items-center"
 		style={`max-width: ${MAX_WIDTH}px`}
 	>
-		<div class="header-logo flex items-center gap-x-2">
+		<div class="header-logo order-1 flex items-center gap-x-2">
 			<a href="/">
 				<Image
 					class="transition duration-300 ease-in-out dark:invert"
@@ -35,35 +35,45 @@ const links: Link[] = [
 				diegosiac
 			</h2>
 		</div>
-		<div class="social-icons flex items-center gap-x-4">
+		<div class="col-span order-3 flex gap-x-4 sm:order-2 sm:justify-center pl-1 sm:pl-2">
 			<a
 				href="https://github.com/diegosiac"
 				target="_blank"
-				class="text-primary/50 hover:text-primary"
+				rel="noreferrer noopener"
+				aria-label="Perfil GitHub de Diego Cruz"
+				class="text-foreground/50 hover:text-foreground"
 			>
-				<GitHub class="size-5" />
+				<GitHub class="size-6 md:size-5" />
 			</a>
 			<a
 				href="https://www.linkedin.com/in/diegosiac/"
 				target="_blank"
-				class="text-primary/50 hover:text-primary"
+				rel="noreferrer noopener"
+				aria-label="Perfil LinkedIn de Diego Cruz"
+				class="text-foreground/50 hover:text-foreground"
 			>
-				<LinkedIn class="size-5" />
+				<LinkedIn class="size-6 md:size-5" />
 			</a>
-			<a href="" target="_blank" class="text-primary/50 hover:text-primary">
-				<Mail class="size-5" />
+			<a
+				href="mailto:diego35502@gmail.com"
+				target="_blank"
+				rel="noreferrer noopener"
+				aria-label="Correo electrónico de Diego Cruz"
+				class="text-foreground/50 hover:text-foreground"
+			>
+				<Mail class="size-6 md:size-5" />
 			</a>
 		</div>
-		<ul
-			class="flex flex-col items-start justify-center gap-x-10 md:flex-row md:items-center"
-		>
-			{
-				links.map((link) => (
-					<li class="text-[15px]/normal font-medium text-primary/60 transition-all duration-100 ease-linear hover:text-primary hover:underline hover:underline-offset-4">
-						<a href={link.url}>{link.text}</a>
-					</li>
-				))
-			}
-		</ul>
+		<nav class="order-2 sm:order-3 flex justify-end pt-3 md:pt-0">
+			<ul class="flex flex-col gap-x-10 md:flex-row md:items-center">
+				{
+					links.map((link) => (
+						<li class="text-[15px] font-medium text-foreground/60 transition-all duration-100 ease-linear hover:text-foreground hover:underline hover:underline-offset-4">
+							<a href={link.url}>{link.text}</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
 	</div>
 </footer>
