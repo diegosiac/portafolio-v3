@@ -1,26 +1,27 @@
 ---
 import { CardSkill } from "@/components/CardSkill"
 import GroupSkill from "@/components/GroupSkill.astro"
-import Tool from "@/icons/tool.astro"
-
-// icons
 
 import Aws from "@/icons/aws.astro"
 import Docker from "@/icons/docker.astro"
+import Expressjs from "@/icons/expressjs.astro"
+import Git from "@/icons/git.astro"
 import GO from "@/icons/go.astro"
+import Javascript from "@/icons/javascript.astro"
 import Kubernetes from "@/icons/kubernetes.astro"
+import Linux from "@/icons/linux.astro"
 import NestJS from "@/icons/nestjs.astro"
 import NextJS from "@/icons/nextjs.astro"
 import NodeJs from "@/icons/nodejs.astro"
+import Playwright from "@/icons/playwright.astro"
 import PostgreSQL from "@/icons/postgresql.astro"
 import React from "@/icons/react.astro"
 import Redis from "@/icons/redis.astro"
-import Rust from "@/icons/rust.astro"
+import Terraform from "@/icons/terraform.astro"
 import TypeScript from "@/icons/typescript.astro"
 ---
 
-<section class="h-screen mt-20">
-
+<section class="mt-20 h-screen">
 	<div class="relative flex h-full w-full items-center justify-center">
 		<h3
 			class="absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 text-[120px] font-black tracking-[-0.1ch] text-primary opacity-15 sm:text-[200px] md:block md:text-[260px] lg:text-[280px]"
@@ -30,49 +31,64 @@ import TypeScript from "@/icons/typescript.astro"
 
 		<div class="grid w-max grid-cols-4 gap-2 sm:grid-cols-5">
 			<GroupSkill>
-				<CardSkill skill="Rust" client:only="react">
-					<Rust class="size-8" />
+				<CardSkill skill="javaScript" client:only="react">
+					<Javascript class="size-8" />
 				</CardSkill>
 				<CardSkill skill="GO" client:only="react">
 					<GO class="size-10" />
 				</CardSkill>
-			</GroupSkill>
-			<GroupSkill>
-				<CardSkill skill="Docker" client:only="react">
-					<Docker class="size-8" />
-				</CardSkill>
-				<CardSkill skill="Kubernetes" client:only="react">
-					<Kubernetes class="size-8" />
-				</CardSkill>
-				<CardSkill skill="AWS" client:only="react">
-					<Aws class="size-8" />
-				</CardSkill>
-			</GroupSkill>
-			<GroupSkill>
 				<CardSkill skill="TypeScript" client:only="react">
 					<TypeScript class="size-8" />
 				</CardSkill>
-				<CardSkill skill="NodeJs" client:only="react">
-					<NodeJs class="size-10" />
-				</CardSkill>
 			</GroupSkill>
 			<GroupSkill>
-				<CardSkill skill="React" client:only="react">
-					<React class="size-8" />
+				<CardSkill skill="AWS" client:only="react">
+					<Aws class="size-8" />
 				</CardSkill>
-				<CardSkill skill="NestJS" client:only="react">
-					<NestJS class="size-8" />
+				<CardSkill skill="Terraform" client:only="react">
+					<Terraform class="size-8" />
 				</CardSkill>
-				<CardSkill skill="NextJS" client:only="react">
-					<NextJS class="size-8" />
+				<CardSkill skill="Linux" client:only="react">
+					<Linux class="size-8" />
+				</CardSkill>
+				<CardSkill skill="Redis" client:only="react">
+					<Redis class="size-8" />
 				</CardSkill>
 			</GroupSkill>
 			<GroupSkill>
 				<CardSkill skill="PostgreSQL" client:only="react">
 					<PostgreSQL class="size-8" />
 				</CardSkill>
-				<CardSkill skill="Redis" client:only="react">
-					<Redis class="size-10" />
+				<CardSkill skill="Docker" client:only="react">
+					<Docker class="size-8" />
+				</CardSkill>
+				<CardSkill skill="Kubernetes" client:only="react">
+					<Kubernetes class="size-8" />
+				</CardSkill>
+			</GroupSkill>
+			<GroupSkill>
+				<CardSkill skill="React" client:only="react">
+					<React class="size-8" />
+				</CardSkill>
+				<CardSkill skill="NextJS" client:only="react">
+					<NextJS class="size-8" />
+				</CardSkill>
+				<CardSkill skill="NestJS" client:only="react">
+					<NestJS class="size-8" />
+				</CardSkill>
+				<CardSkill skill="NodeJs" client:only="react">
+					<NodeJs class="size-8" />
+				</CardSkill>
+			</GroupSkill>
+			<GroupSkill class="hidden sm:flex">
+				<CardSkill skill="Playwright" client:only="react">
+					<Playwright class="size-8" />
+				</CardSkill>
+				<CardSkill skill="ExpressJs" client:only="react">
+					<Expressjs class="size-8" />
+				</CardSkill>
+				<CardSkill skill="Git" client:only="react">
+					<Git class="size-8" />
 				</CardSkill>
 			</GroupSkill>
 		</div>
