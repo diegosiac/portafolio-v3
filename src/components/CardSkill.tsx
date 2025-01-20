@@ -38,7 +38,7 @@ export const CardSkill = ({ skill, children }: Props) => {
 		>
 			<div
 				id="spotlight"
-				className="pointer-events-none absolute -inset-px transform-gpu opacity-0 transition duration-300 [&>astro-slot>svg]:size-16"
+				className="pointer-events-none absolute -inset-px transform-gpu opacity-0 transition duration-300 [&_svg]:size-16"
 				style={{
 					opacity: `${opacity}`,
 					left: `${position.x}px`,
