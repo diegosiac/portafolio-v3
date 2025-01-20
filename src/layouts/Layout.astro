@@ -6,6 +6,7 @@ import "@fontsource-variable/tourney"
 import { ClientRouter } from "astro:transitions"
 import { Header } from "@/components/Header"
 import Footer from "@/components/Footer.astro"
+import NoiseBackground from "@/components/NoiseBackground.astro"
 
 interface Props {
 	title: string
@@ -56,6 +57,7 @@ const { title, description } = Astro.props
 	</head>
 	<body class="relative bg-background text-foreground">
 		<Header client:only="react" />
+		<NoiseBackground />
 		<main>
 			<slot />
 		</main>
@@ -112,7 +114,7 @@ const { title, description } = Astro.props
 			}
 
 			.dark {
-				--background: 0 4% 10%;
+				--background: 19 14% 6%;
 				--foreground: 49 14% 85%;
 
 				--muted: 37 10% 79%;
@@ -162,7 +164,6 @@ const { title, description } = Astro.props
 			}
 
 			body {
-				@apply bg-background text-foreground;
 				font-feature-settings:
 					"rlig" 1,
 					"calt" 1;
