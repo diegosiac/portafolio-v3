@@ -1,0 +1,91 @@
+---
+interface Props {
+	class?: string
+	style?:
+		| string
+		| Record<string, boolean>
+		| Record<any, any>
+		| Iterable<string>
+		| Iterable<any>
+		| undefined
+}
+
+const { class: className, style } = Astro.props
+---
+
+<svg
+	class:list={className}
+	style={style}
+	width="322"
+	height="149"
+	viewBox="0 0 322 149"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<g filter="url(#filter0_d_92_24)">
+		<path
+			d="M228 126H29C23.4772 126 19 121.523 19 116V103.5V79.5C19 73.9772 23.4771 69.5 29 69.5H210C215.523 69.5 220 65.0229 220 59.5V25C220 19.4772 224.477 15 230 15H292.5C298.023 15 302.5 19.4772 302.5 25V50.5V61.7557C302.5 67.2785 298.023 71.7557 292.5 71.7557H248C242.477 71.7557 238 76.2328 238 81.7557V116C238 121.523 233.523 126 228 126Z"
+			fill="url(#paint0_linear_92_24)"></path>
+	</g>
+	<defs>
+		<filter
+			id="filter0_d_92_24"
+			x="0"
+			y="0"
+			width="321.5"
+			height="149"
+			filterUnits="userSpaceOnUse"
+			color-interpolation-filters="sRGB"
+		>
+			<feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+			<feColorMatrix
+				in="SourceAlpha"
+				type="matrix"
+				values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+				result="hardAlpha"></feColorMatrix>
+			<feOffset dy="4"></feOffset>
+			<feGaussianBlur stdDeviation="9.5"></feGaussianBlur>
+			<feComposite in2="hardAlpha" operator="out"></feComposite>
+			<feColorMatrix
+				type="matrix"
+				values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+			<feBlend
+				mode="normal"
+				in2="BackgroundImageFix"
+				result="effect1_dropShadow_92_24"></feBlend>
+			<feBlend
+				mode="normal"
+				in="SourceGraphic"
+				in2="effect1_dropShadow_92_24"
+				result="shape"></feBlend>
+		</filter>
+		<linearGradient
+			id="paint0_linear_92_24"
+			x1="312"
+			y1="68.2399"
+			x2="19"
+			y2="68.2399"
+			gradientUnits="userSpaceOnUse"
+		>
+			<stop offset="0%" stop-color="#F85347" stop-opacity=".5">
+				<animate
+					attributeName="stop-color"
+					values="#F85347;#E99919;#FEA259;#0AB6F8"
+					dur="14s"
+					repeatCount="indefinite"></animate>
+			</stop>
+			<stop offset="100%" stop-color="#F85347" stop-opacity=".5">
+				<animate
+					attributeName="stop-color"
+					values="#F85347;#ED2D53;#0AB6F8;#E99919;#FEA259"
+					dur="14s"
+					repeatCount="indefinite"></animate>
+				<animate
+					attributeName="offset"
+					values=".95;.80;.60;.40;.20;.40;.60;.80;.95"
+					dur="14s"
+					repeatCount="indefinite"></animate>
+			</stop>
+		</linearGradient>
+	</defs>
+</svg>
