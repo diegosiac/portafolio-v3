@@ -10,7 +10,7 @@ export const BentoProjects = () => {
 				<motion.div
 					key={index}
 					className={cn(
-						"group relative items-start overflow-hidden bg-background dark:bg-[#262323] p-6 rounded-lg",
+						"group relative items-start overflow-hidden bg-[#e7e6e0] dark:bg-[#1f1c1c] p-6 rounded-lg",
 						project.className
 					)}
 					initial={{ opacity: 0, y: 50 }}
