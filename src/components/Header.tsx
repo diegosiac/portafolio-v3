@@ -45,7 +45,7 @@ export function Header({ buttonTheme }: { buttonTheme?: ReactNode }) {
 	};
 
 	return (
-		<header id="header-nav" className="fixed left-1/2 top-5 z-50 flex w-min -translate-x-1/2 items-center rounded-md p-1">
+		<header id="header-nav" className="fixed left-1/2 top-5 z-[99999] flex w-min -translate-x-1/2 items-center rounded-md p-1">
 			<nav>
 				<ul
 					onMouseLeave={handleMouseLeave}
