@@ -13,7 +13,7 @@ export const AboutMeCard = ({
 
 			<div className="relative flex max-w-[45ch] flex-col">
 				<span className="absolute right-0 top-[3.8rem] font-oxanium text-5xl font-bold leading-none tracking-[-0.1ch] opacity-10 md:right-0">
-					/siac
+					/ 10
 				</span>
 
 				<h2 className="mb-6 font-oxanium text-[3.45rem] font-bold leading-none">
