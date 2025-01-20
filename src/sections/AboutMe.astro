@@ -1,14 +1,26 @@
 ---
 import { AboutMeAside } from "@/components/about-me-aside"
 import { AboutMeCard } from "@/components/about-me-card"
+import TextHighlightingShape from "@/components/text-highlighting-shape.astro"
+import CircleOfSkills from "@/icons/circle-of-skills.astro"
 import SectionLayout from "@/layouts/SectionLayout.astro"
 ---
 
 <SectionLayout
-	nonMaxWidth
-	containerClassName="!pt-0 !px-0"
-	className="relative flex flex-col gap-5 overflow-hidden bg-[#f5bf6e] shadow-xl backdrop-blur-md dark:text-background md:h-[500px] md:flex-row"
+	containerClassName="!py-0 !px-0 bg-foreground md:h-[500px] relative"
+	className="relative flex h-full flex-col gap-5 overflow-hidden border-x border-background text-background shadow-xl backdrop-blur-md md:flex-row"
 >
-	<AboutMeCard client:only="react" />
+	<AboutMeCard client:only="react">
+		<CircleOfSkills slot="circleSkills" class="text-background" />
+		<TextHighlightingShape
+			slot="textHighlightingShape"
+			class="absolute -left-7 -top-5"
+		/>
+	</AboutMeCard>
 	<AboutMeAside client:visible />
+	<div
+		slot="outside"
+		class="absolute -right-40 top-0 z-50 size-full bg-gradient-to-l from-background/40 via-transparent"
+	>
+	</div>
 </SectionLayout>
