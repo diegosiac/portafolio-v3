@@ -1,4 +1,5 @@
 ---
+import OctagonCube from "@/icons/octagon-cube.astro"
 import Layout from "@/layouts/Layout.astro"
 import AboutMe from "@/sections/AboutMe.astro"
 import Certificates from "@/sections/Certificates.astro"
@@ -11,8 +12,13 @@ import TextReveal from "@/sections/TextReveal.astro"
 
 <Layout title="diegosiac - portafolio" description="">
 	<Presentation />
-	<LaboralExperience />
-	<Projects />
+	<div class="relative overflow-hidden">
+		<OctagonCube
+			class="absolute -right-40 top-[1100px] sm:top-[550px] size-[500px] sm:size-[700px] -rotate-45 opacity-5"
+		/>
+		<LaboralExperience />
+		<Projects />
+	</div>
 	<AboutMe />
 	<Certificates />
 	<Skills />
