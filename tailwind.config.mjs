@@ -53,19 +53,23 @@ export default {
 				md: `calc(var(--radius) - 2px)`,
 				sm: "calc(var(--radius) - 4px)",
 			},
-			animation: {
-				"spin": "ping2 1s cubic-bezier(0, 0, 0.2, 1) infinite",
-				"accordion-down": "accordion-down 0.2s ease-out",
-				"accordion-up": "accordion-up 0.2s ease-out",
-			},
 			boxShadowColor: {
 				glow: "var(--box-shadow-glows)",
 			},
 			animation: {
-				ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
+				"ripple":
+					"ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
+				"ping": "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+				"spin": "spin 1s linear infinite",
 			},
 			keyframes: {
-				"ping2": {
+				"spin": {
+					from: { transform: "rotate(0deg)" },
+					to: { transform: "rotate(360deg)" },
+				},
+				"ping": {
 					"75%, 100%": { transform: "scale(2)", opacity: 0 },
 					"100%": { transform: "rotate(360deg)" },
 				},
