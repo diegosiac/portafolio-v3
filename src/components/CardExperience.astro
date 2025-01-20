@@ -1,6 +1,5 @@
 ---
 import type { Experience } from "@/interfaces"
-import { Separator } from "./ui/separator"
 
 interface Props {
 	experience: Experience
@@ -8,75 +7,25 @@ interface Props {
 
 const { experience } = Astro.props
 
-const {
-	company,
-	description,
-	startPeriod,
-	endPeriod,
-	position,
-	isLast,
-	urlCompany,
-} = experience
+const { company, description, period, position, urlCompany } = experience
 ---
 
-<article class="flex gap-5">
-	<div class="relative flex justify-center pt-2">
-		<span
-			class="relative z-10 flex h-4 w-4 animate-fade-in-up items-center justify-center"
-			style="animation-duration: 0.3s"
-		>
-			{
-				isLast && (
-					<span class="absolute inline-flex h-full w-full animate-spin rounded-full bg-orange opacity-75 animate-iteration-count-infinite" />
-				)
-			}
-			<span class="relative inline-flex h-full w-full rounded-full bg-orange"
-			></span>
-		</span>
-
-		<div class="dotted-spaced absolute left-1/2 h-full w-1 -translate-x-1/2">
-		</div>
+<article class="flex flex-col md:flex-row gap-2 md:gap-5 border-b border-foreground/40 p-10 w-full">
+	<div>
+		<span>{period}</span>
 	</div>
 
-	<div
-		class="flex items-center gap-3 rounded-lg bg-primary-blur p-5 backdrop-blur-sm"
-	>
-		<div
-			class="flex flex-col items-center justify-center gap-2 text-balance text-center font-oxanium text-xs font-bold"
-		>
-			<span>{endPeriod}</span>
-			<Separator className="w-2/3" />
-			<span>{startPeriod}</span>
-		</div>
-		<Separator orientation="vertical" className="h-2/3" />
-		<div>
-			<h4 class="text-balance text-xl font-bold leading-none text-orange">
-				{position}
-			</h4>
-			<a
-				class="text-balance text-lg font-semibold hover:underline"
-				target="_blank"
-				rel="noreferrer noopener"
-				href={urlCompany}
-			>
-				{company}
-			</a>
-			<p class="mt-1 max-w-[40ch] text-sm">
-				{description}
-			</p>
-		</div>
+	<div class="space-y-2">
+		<h3 class="text-2xl font-semibold">{position}</h3>
+		{
+			urlCompany ? (
+				<a class="font-semibold hover:underline" href={urlCompany} target="_blank" rel="noreferrer noopener">
+					{company}
+				</a>
+			) : (
+				<span class="font-semibold">{company}</span>
+			)
+		}
+		<p class="max-w-[65ch]">{description}</p>
 	</div>
 </article>
-
-<style>
-	.dotted-spaced {
-		background-image: linear-gradient(
-			to bottom,
-			#8b8b8b 40%,
-			rgba(255, 255, 255, 0) 60%
-		);
-		background-position: left;
-		background-size: 2px 9px;
-		background-repeat: repeat-y;
-	}
-</style>
