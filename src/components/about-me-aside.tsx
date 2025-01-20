@@ -3,7 +3,7 @@ import { TrianglesPattern } from "@/components/ui/triangles-pattern"
 
 export const AboutMeAside = () => {
 	return (
-		<div className="relative h-[500px] w-full font-oxanium md:h-full md:w-[400px]">
+		<div className="relative h-[500px] w-full font-oxanium [@media(min-width:845px)]:w-[400px]">
 			<FadeText
 				className="absolute -right-9 top-16 z-50 text-9xl font-bold leading-none"
 				direction="left"
@@ -53,6 +53,8 @@ export const AboutMeAside = () => {
 					show: { transition: { delay: 1 } },
 				}}
 			/>
+
+			<div className="absolute right-0 top-0 z-50 size-full bg-gradient-to-l from-background/40 via-transparent [@media(min-width:845px)]:hidden"></div>
 
 			<TrianglesPattern className="opacity-40" />
 		</div>

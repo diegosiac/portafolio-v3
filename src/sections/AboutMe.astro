@@ -7,8 +7,8 @@ import SectionLayout from "@/layouts/SectionLayout.astro"
 ---
 
 <SectionLayout
-	containerClassName="!py-0 !px-0 bg-foreground md:h-[500px] relative"
-	className="relative flex h-full flex-col gap-5 overflow-hidden border-x border-background text-background shadow-xl backdrop-blur-md md:flex-row"
+	containerClassName="!py-0 !px-0 bg-foreground md:min-h-[500px] relative"
+	className="relative flex h-full gap-5 overflow-hidden border-x border-background text-background shadow-xl backdrop-blur-md flex-col [@media(min-width:845px)]:flex-row"
 >
 	<AboutMeCard client:only="react">
 		<CircleOfSkills slot="circleSkills" class="text-background" />
@@ -18,9 +18,10 @@ import SectionLayout from "@/layouts/SectionLayout.astro"
 		/>
 	</AboutMeCard>
 	<AboutMeAside client:visible />
+
 	<div
 		slot="outside"
-		class="absolute -right-40 top-0 z-50 size-full bg-gradient-to-l from-background/40 via-transparent"
+		class="absolute right-0 top-0 z-50 hidden size-full bg-gradient-to-l from-background/40 via-transparent [@media(min-width:845px)]:block"
 	>
 	</div>
 </SectionLayout>

@@ -6,13 +6,13 @@ export const AboutMeCard = ({
 	textHighlightingShape?: React.ReactNode
 }) => {
 	return (
-		<div className="relative z-[999] flex items-center justify-center p-10 md:flex-1 md:p-0">
-			<span className="absolute -bottom-[92px] -left-[92px] animate-[spin_20s_linear_infinite] opacity-20 md:opacity-100">
+		<div className="relative z-[999] flex flex-1 items-center justify-center p-10">
+			<span className="absolute -bottom-[92px] -left-[92px] animate-[spin_20s_linear_infinite] opacity-20 [@media(min-width:845px)]:opacity-100">
 				{circleSkills}
 			</span>
 
 			<div className="relative flex max-w-[45ch] flex-col">
-				<span className="absolute top-[3.8rem] left-56 md:left-96 font-oxanium text-5xl font-bold leading-none tracking-[-0.1ch] opacity-10">
+				<span className="absolute right-0 top-[3.8rem] font-oxanium text-5xl font-bold leading-none tracking-[-0.1ch] opacity-10 md:right-0">
 					/siac
 				</span>
 
